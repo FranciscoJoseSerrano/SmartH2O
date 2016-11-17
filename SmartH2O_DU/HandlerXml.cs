@@ -8,7 +8,7 @@ namespace SmartH2O_DU
 
 
         private SensorsParameter parameter;
-        
+
 
 
         public HandlerXml()
@@ -22,7 +22,7 @@ namespace SmartH2O_DU
         {
             string[] splited;
             splited = message.Split(';');
-            parameter = new SensorsParameter(splited[0],splited[1], splited[2]);
+            parameter = new SensorsParameter(splited[0], splited[1], splited[2]);
             createXmlDocument();
 
         }
@@ -43,7 +43,7 @@ namespace SmartH2O_DU
 
             doc.AppendChild(root);
 
-            XmlElement param = createSensorParameter(parameter.id, parameter.name, parameter.value,doc);
+            XmlElement param = createSensorParameter(parameter.id, parameter.name, parameter.value, doc);
 
             root.AppendChild(param);
 
@@ -53,7 +53,7 @@ namespace SmartH2O_DU
 
         }
 
-        private XmlElement createSensorParameter(String id , String name, String value, XmlDocument doc)
+        private XmlElement createSensorParameter(String id, String name, String value, XmlDocument doc)
         {
             XmlElement parameter = doc.CreateElement("parameter");
             parameter.SetAttribute("id", id);

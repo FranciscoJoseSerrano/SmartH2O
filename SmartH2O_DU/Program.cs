@@ -8,7 +8,6 @@ namespace SmartH2O_DU
     {
         private static int delay = 5000;
         private static SensorNodeDll.SensorNodeDll dll;
-
         private static HandlerXml handler = new HandlerXml();
 
 
@@ -19,13 +18,14 @@ namespace SmartH2O_DU
                 dll = new SensorNodeDll.SensorNodeDll();
                 dll.Initialize(readDataFromDll, delay);
 
-                while (Console.Read() != 's') ;
+                
 
-            }catch (Exception e)
+            }
+            catch (Exception e)
             {
                 throw new Exception(e.Message);
             }
-   
+
 
 
         }
