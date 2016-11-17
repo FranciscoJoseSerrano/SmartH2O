@@ -7,40 +7,33 @@ namespace SmartH2O_DU
     {
 
 
-        private SensorsParameter[] parameters;
-        private String xmlPath = AppDomain.CurrentDomain.BaseDirectory+"water-parameters.xml";
+        private SensorsParameter parameter;
+        
 
 
-        public HandlerXml(String[] messages)
+        public HandlerXml()
         {
 
-            parameters = new SensorsParameter[3];
-
-            createParameters(messages);
         }
 
 
 
-        private void createParameters(String[] message)
+        public void createParameter(String message)
         {
-
             string[] splited;
-            for (int i = 0; i < message.Length; i++)
-            {
-                splited = message[i].Split(';');
-                parameters[i] = new SensorsParameter(splited[1], splited[2]);
-
-            }
-
+            splited = message.Split(';');
+            parameter = new SensorsParameter(splited[0],splited[1], splited[2]);
             createXmlDocument();
 
-
         }
 
-        private void createXmlDocument()
+
+
+
+        private String createXmlDocument()
         {
             XmlDocument doc = new XmlDocument();
-       
+
             /** CREATE XML DECLARATION **/
             XmlDeclaration decl = doc.CreateXmlDeclaration("1.0", null, null);
             doc.AppendChild(decl);
@@ -50,24 +43,20 @@ namespace SmartH2O_DU
 
             doc.AppendChild(root);
 
-            XmlElement ph = createSensorParameter(parameters[0].name, parameters[0].value, doc);
-            XmlElement nh3 = createSensorParameter(parameters[1].name, parameters[1].value, doc);
-            XmlElement ci2 = createSensorParameter(parameters[2].name, parameters[2].value, doc);
+            XmlElement param = createSensorParameter(parameter.id, parameter.name, parameter.value,doc);
 
-            root.AppendChild(ph);
-            root.AppendChild(nh3);
-            root.AppendChild(ci2);
+            root.AppendChild(param);
 
-            doc.Save(this.xmlPath);
+            Console.WriteLine(doc.OuterXml);
 
-
-
+            return doc.OuterXml;
 
         }
 
-        private XmlElement createSensorParameter(String name,String value,XmlDocument doc)
+        private XmlElement createSensorParameter(String id , String name, String value, XmlDocument doc)
         {
             XmlElement parameter = doc.CreateElement("parameter");
+            parameter.SetAttribute("id", id);
 
             XmlElement parameterName = doc.CreateElement("name");
             parameterName.InnerText = name;
