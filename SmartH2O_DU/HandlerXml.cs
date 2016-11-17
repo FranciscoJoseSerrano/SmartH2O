@@ -40,6 +40,7 @@ namespace SmartH2O_DU
 
             XmlElement root = doc.CreateElement("H2O");
             root.SetAttribute("date", Convert.ToString(DateTime.Now));
+            root.SetAttribute("type", "DATA");
 
             doc.AppendChild(root);
 
