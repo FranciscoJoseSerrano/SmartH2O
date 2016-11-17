@@ -10,7 +10,6 @@ namespace SmartH2O_DU
         private static SensorNodeDll.SensorNodeDll dll;
         private static HandlerXml handler = new HandlerXml();
 
-
         static void Main(string[] args)
         {
             try
@@ -18,16 +17,11 @@ namespace SmartH2O_DU
                 dll = new SensorNodeDll.SensorNodeDll();
                 dll.Initialize(readDataFromDll, delay);
 
-                
-
             }
             catch (Exception e)
             {
                 throw new Exception(e.Message);
             }
-
-
-
         }
 
         private static void handlerReceivingInformation(object sender, ElapsedEventArgs e)

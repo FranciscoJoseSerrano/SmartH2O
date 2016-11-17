@@ -6,10 +6,7 @@ namespace SmartH2O_DU
     class HandlerXml
     {
 
-
         private SensorsParameter parameter;
-
-
 
         public HandlerXml()
         {
@@ -28,8 +25,6 @@ namespace SmartH2O_DU
         }
 
 
-
-
         private String createXmlDocument()
         {
             XmlDocument doc = new XmlDocument();
@@ -43,16 +38,15 @@ namespace SmartH2O_DU
             root.SetAttribute("type", "DATA");
 
             doc.AppendChild(root);
-
             XmlElement param = createSensorParameter(parameter.id, parameter.name, parameter.value, doc);
 
             root.AppendChild(param);
-
             Console.WriteLine(doc.OuterXml);
 
             return doc.OuterXml;
 
         }
+
 
         private XmlElement createSensorParameter(String id, String name, String value, XmlDocument doc)
         {
