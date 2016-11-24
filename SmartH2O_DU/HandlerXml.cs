@@ -53,15 +53,15 @@ namespace SmartH2O_DU
         private XmlElement createSensorParameter(String id, String name, String value, XmlDocument doc)
         {
             XmlElement parameter = doc.CreateElement("parameter");
-            parameter.SetAttribute("id", id);
+            parameter.SetAttribute("name", name);
 
-            XmlElement parameterName = doc.CreateElement("name");
-            parameterName.InnerText = name;
+            XmlElement parameterid = doc.CreateElement("id");
+            parameterid.InnerText = id;
 
             XmlElement parameterValue = doc.CreateElement("value");
             parameterValue.InnerText = value;
 
-            parameter.AppendChild(parameterName);
+            parameter.AppendChild(parameterid);
             parameter.AppendChild(parameterValue);
 
 
