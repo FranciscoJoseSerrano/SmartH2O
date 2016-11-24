@@ -25,7 +25,8 @@ namespace SmartH2O_DU
 
         private static void readDataFromDll(string message)
         {
-            handler.createParameter(message);
+            String xml = handler.createParameter(message);
+            Console.WriteLine(xml);
         }
 
 
