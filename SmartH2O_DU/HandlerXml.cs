@@ -35,9 +35,15 @@ namespace SmartH2O_DU
             XmlDeclaration decl = doc.CreateXmlDeclaration("1.0", null, null);
             doc.AppendChild(decl);
 
-            XmlElement root = doc.CreateElement("H2O");
-            root.SetAttribute("date", Convert.ToString(DateTime.Now));
-            root.SetAttribute("type", "DATA");
+            XmlElement root = doc.CreateElement("h2o");
+            DateTime date = DateTime.Now;
+            root.SetAttribute("day", Convert.ToString(date.Day));
+            root.SetAttribute("month", Convert.ToString(date.Month));
+            root.SetAttribute("year", Convert.ToString(date.Year));
+            root.SetAttribute("hour", Convert.ToString(date.Hour));
+            root.SetAttribute("minute", Convert.ToString(date.Minute));
+            root.SetAttribute("second", Convert.ToString(date.Second));
+            root.SetAttribute("type", "data");
 
             doc.AppendChild(root);
             XmlElement param = createSensorParameter(parameter.id, parameter.name, parameter.value, doc);
