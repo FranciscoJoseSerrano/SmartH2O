@@ -28,12 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.buttonOnOff = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // buttonOnOff
+            // 
+            this.buttonOnOff.Location = new System.Drawing.Point(12, 12);
+            this.buttonOnOff.Name = "buttonOnOff";
+            this.buttonOnOff.Size = new System.Drawing.Size(100, 36);
+            this.buttonOnOff.TabIndex = 0;
+            this.buttonOnOff.Text = "OFF";
+            this.buttonOnOff.UseVisualStyleBackColor = true;
+            this.buttonOnOff.Click += new System.EventHandler(this.buttonOnOff_Click);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(557, 337);
+            this.Controls.Add(this.buttonOnOff);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button buttonOnOff;
     }
 }
 
