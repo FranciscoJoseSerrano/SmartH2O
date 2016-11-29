@@ -29,8 +29,8 @@ namespace SmartaH2O_Alarm
 
         static void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
         {
-          MessageBox.Show("Received = " + Encoding.UTF8.GetString(e.Message) +
-            " on topic " + e.Topic);
+        //  MessageBox.Show("Received = " + Encoding.UTF8.GetString(e.Message) +
+          //  " on topic " + e.Topic);
         }
         
         private void subscriveParameter()
@@ -58,11 +58,11 @@ namespace SmartaH2O_Alarm
 
         private void buttonOnOff_Click(object sender, EventArgs e)
         {
-            subscriveParameter();
+           
            
            if (buttonOnOff.Text == "ON")
             {
-
+                subscriveParameter();
                 buttonOnOff.Text = "OFF";
 
             } else
