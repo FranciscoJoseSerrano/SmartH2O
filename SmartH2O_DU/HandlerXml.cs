@@ -49,7 +49,6 @@ namespace SmartH2O_DU
             XmlElement param = createSensorParameter(parameter.id, parameter.name, parameter.value, doc);
 
             root.AppendChild(param);
-            
 
             return doc.OuterXml;
 

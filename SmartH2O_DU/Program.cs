@@ -11,7 +11,7 @@ namespace SmartH2O_DU
     {
         private static SensorNodeDll.SensorNodeDll dll;
         private static HandlerXml handler = new HandlerXml();
-        private static MqttClient m_cClient = new MqttClient(IPAddress.Parse("127.0.0.1"));
+        private static MqttClient m_cClient = new MqttClient("127.0.0.1");
        
 
 
