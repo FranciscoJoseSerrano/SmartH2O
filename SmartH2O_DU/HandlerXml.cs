@@ -13,8 +13,6 @@ namespace SmartH2O_DU
 
         }
 
-
-
         public void createParameter(String message)
         {
             string[] splited;
