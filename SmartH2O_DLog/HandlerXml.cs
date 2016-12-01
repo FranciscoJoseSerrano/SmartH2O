@@ -14,6 +14,7 @@ namespace SmartH2O_DLog
         public string XmlFilePath { get; set; }
 
 
+
         public HandlerXml(string xmlFile)
         {
             this.XmlFilePath = xmlFile;
@@ -39,9 +40,9 @@ namespace SmartH2O_DLog
             if (System.IO.File.Exists(this.XmlFilePath) == false)
             {
                 createXml(realParameter);
-            }else
+            }
+            else
             {
-
                 addParameter(realParameter);
             }
         }
@@ -59,38 +60,38 @@ namespace SmartH2O_DLog
             XmlElement parameter = doc.CreateElement(sensorParameterWithDate.name);
             parameter.SetAttribute("id", sensorParameterWithDate.id);
 
-            XmlElement b = this.createSensorWithDateParameter(sensorParameterWithDate.second, sensorParameterWithDate.minute, sensorParameterWithDate.hour, sensorParameterWithDate.day, sensorParameterWithDate.month, sensorParameterWithDate.year, sensorParameterWithDate.id, sensorParameterWithDate.name, sensorParameterWithDate.value, doc);
-            
+            XmlElement b = this.createSensorWithDateParameter(sensorParameterWithDate.second, sensorParameterWithDate.minute, sensorParameterWithDate.hour, sensorParameterWithDate.day,
+                sensorParameterWithDate.month, sensorParameterWithDate.year, sensorParameterWithDate.id, sensorParameterWithDate.name, sensorParameterWithDate.value, doc);
+
             doc.AppendChild(root);
 
             root.AppendChild(parameter);
             parameter.AppendChild(b);
-            
+
             doc.Save(this.XmlFilePath);
-          
+
         }
 
-        private XmlElement createSensorWithDateParameter(String second, String minute, String hour, String day, String month, String year , String id, String name, String value, XmlDocument doc)
+        private XmlElement createSensorWithDateParameter(String second, String minute, String hour, String day, String month, String year, String id, String name, String value, XmlDocument doc)
         {
 
-                XmlElement h2o = doc.CreateElement("H2O");
-                h2o.SetAttribute("day", day);
-                h2o.SetAttribute("month", month);
-                h2o.SetAttribute("year", year);
-                h2o.SetAttribute("hour", hour);
-                h2o.SetAttribute("minute", minute);
-                h2o.SetAttribute("second", second);
+            XmlElement h2o = doc.CreateElement("H2O");
+            h2o.SetAttribute("day", day);
+            h2o.SetAttribute("month", month);
+            h2o.SetAttribute("year", year);
+            h2o.SetAttribute("hour", hour);
+            h2o.SetAttribute("minute", minute);
+            h2o.SetAttribute("second", second);
 
 
                 XmlElement parameterValue = doc.CreateElement("value");
                 parameterValue.InnerText = value;
 
-                h2o.AppendChild(parameterValue);
+            h2o.AppendChild(parameterValue);
 
-            return h2o;         
+            return h2o;
 
-            /*XmlElement parameter = doc.CreateElement("parameter");
-            parameter.SetAttribute("name", name);*/            
+
         }
 
         private void addParameter(SensorParameterWithDate sensorParameterWithDate)
@@ -98,7 +99,9 @@ namespace SmartH2O_DLog
             XmlDocument doc = new XmlDocument();
             doc.Load(this.XmlFilePath);
 
-            XmlElement b = this.createSensorWithDateParameter(sensorParameterWithDate.second, sensorParameterWithDate.minute, sensorParameterWithDate.hour, sensorParameterWithDate.day, sensorParameterWithDate.month, sensorParameterWithDate.year, sensorParameterWithDate.id, sensorParameterWithDate.name, sensorParameterWithDate.value, doc);
+            XmlElement b = this.createSensorWithDateParameter(sensorParameterWithDate.second, sensorParameterWithDate.minute,
+                sensorParameterWithDate.hour, sensorParameterWithDate.day, sensorParameterWithDate.month, sensorParameterWithDate.year,
+                sensorParameterWithDate.id, sensorParameterWithDate.name, sensorParameterWithDate.value, doc);
 
             if (verifyParameter(sensorParameterWithDate.id) == false)
             {
@@ -110,14 +113,12 @@ namespace SmartH2O_DLog
                 last.AppendChild(parameter);
                 parameter.AppendChild(b);
             }
-             else
+            else
             {
-                XmlNode nodeParam = doc.SelectSingleNode("data//"+sensorParameterWithDate.name);
-             
+                XmlNode nodeParam = doc.SelectSingleNode("data/" + sensorParameterWithDate.name);
 
                 nodeParam.AppendChild(b);
 
-                Console.WriteLine(nodeParam.InnerText);
             }
 
             doc.Save(this.XmlFilePath);
@@ -130,13 +131,12 @@ namespace SmartH2O_DLog
             doc.Load(this.XmlFilePath);
 
             XmlNodeList parameters = doc.SelectNodes("data//@id");
-            //Console.WriteLine(parameters.Count);
 
             foreach (XmlNode node in parameters)
             {
                 //Console.WriteLine("cheguei aqui \n");
                
-                if (node.Value == id)
+                if (node.Value == name)
                 {
                     return true;
                 }
