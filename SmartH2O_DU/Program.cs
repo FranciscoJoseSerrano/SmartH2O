@@ -12,7 +12,7 @@ namespace SmartH2O_DU
         private static SensorNodeDll.SensorNodeDll dll;
         private static HandlerXml handler = new HandlerXml();
         private static MqttClient m_cClient = new MqttClient("127.0.0.1");
-       
+
 
 
 
@@ -46,6 +46,7 @@ namespace SmartH2O_DU
 
         private static void publishParameters(String parameter)
         {
+            Console.WriteLine("SENDING: " + parameter);
             m_cClient.Publish("parameters", Encoding.UTF8.GetBytes(parameter));
 
         }

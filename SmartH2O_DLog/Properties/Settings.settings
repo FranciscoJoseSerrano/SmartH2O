@@ -5,5 +5,11 @@
     <Setting Name="AcessToken" Type="System.String" Scope="User">
       <Value Profile="(Default)">NhVobH0ma4cAAAAAAAAAB6sFUE2h7IGMyhz_zGLX54ZkQfhhnNUrNs6fiSBij79H</Value>
     </Setting>
+    <Setting Name="StoragePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Aplicativos/SmartH2O_DLog</Value>
+    </Setting>
+    <Setting Name="FIleName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">param-data.xml</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -34,5 +34,29 @@ namespace SmartH2O_DLog.Properties {
                 this["AcessToken"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Aplicativos/SmartH2O_DLog")]
+        public string StoragePath {
+            get {
+                return ((string)(this["StoragePath"]));
+            }
+            set {
+                this["StoragePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("param-data.xml")]
+        public string FIleName {
+            get {
+                return ((string)(this["FIleName"]));
+            }
+            set {
+                this["FIleName"] = value;
+            }
+        }
     }
 }

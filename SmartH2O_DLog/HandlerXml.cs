@@ -14,6 +14,7 @@ namespace SmartH2O_DLog
         public string XmlFilePath { get; set; }
 
 
+
         public HandlerXml(string xmlFile)
         {
             this.XmlFilePath = xmlFile;
@@ -42,7 +43,6 @@ namespace SmartH2O_DLog
             }
             else
             {
-
                 addParameter(realParameter);
             }
         }
@@ -60,7 +60,7 @@ namespace SmartH2O_DLog
             XmlElement parameter = doc.CreateElement(sensorParameterWithDate.name);
             parameter.SetAttribute("id", sensorParameterWithDate.id);
 
-            XmlElement b = this.createSensorWithDateParameter(sensorParameterWithDate.second, sensorParameterWithDate.minute, sensorParameterWithDate.hour, sensorParameterWithDate.day, 
+            XmlElement b = this.createSensorWithDateParameter(sensorParameterWithDate.second, sensorParameterWithDate.minute, sensorParameterWithDate.hour, sensorParameterWithDate.day,
                 sensorParameterWithDate.month, sensorParameterWithDate.year, sensorParameterWithDate.id, sensorParameterWithDate.name, sensorParameterWithDate.value, doc);
 
             doc.AppendChild(root);
@@ -74,7 +74,7 @@ namespace SmartH2O_DLog
 
         private XmlElement createSensorWithDateParameter(String second, String minute, String hour, String day, String month, String year, String id, String name, String value, XmlDocument doc)
         {
-        
+
             XmlElement h2o = doc.CreateElement("H2O");
             h2o.SetAttribute("day", day);
             h2o.SetAttribute("month", month);
@@ -90,7 +90,7 @@ namespace SmartH2O_DLog
 
             return h2o;
 
-      
+
         }
 
         private void addParameter(SensorParameterWithDate sensorParameterWithDate)
@@ -98,8 +98,8 @@ namespace SmartH2O_DLog
             XmlDocument doc = new XmlDocument();
             doc.Load(this.XmlFilePath);
 
-            XmlElement b = this.createSensorWithDateParameter(sensorParameterWithDate.second, sensorParameterWithDate.minute, 
-                sensorParameterWithDate.hour, sensorParameterWithDate.day, sensorParameterWithDate.month, sensorParameterWithDate.year, 
+            XmlElement b = this.createSensorWithDateParameter(sensorParameterWithDate.second, sensorParameterWithDate.minute,
+                sensorParameterWithDate.hour, sensorParameterWithDate.day, sensorParameterWithDate.month, sensorParameterWithDate.year,
                 sensorParameterWithDate.id, sensorParameterWithDate.name, sensorParameterWithDate.value, doc);
 
             if (verifyParameter(sensorParameterWithDate.id) == false)
