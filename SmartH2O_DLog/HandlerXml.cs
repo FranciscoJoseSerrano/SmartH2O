@@ -81,6 +81,7 @@ namespace SmartH2O_DLog
                 h2o.SetAttribute("minute", minute);
                 h2o.SetAttribute("second", second);
 
+
                 XmlElement parameterValue = doc.CreateElement("value");
                 parameterValue.InnerText = value;
 
@@ -123,7 +124,7 @@ namespace SmartH2O_DLog
         }
 
 
-        private bool verifyParameter(string name)
+        private bool verifyParameter(string id)
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(this.XmlFilePath);
@@ -135,7 +136,7 @@ namespace SmartH2O_DLog
             {
                 //Console.WriteLine("cheguei aqui \n");
                
-                if (node.Value == name)
+                if (node.Value == id)
                 {
                     return true;
                 }

@@ -11,9 +11,7 @@ using uPLibrary.Networking.M2Mqtt.Messages;
 namespace SmartH2O_DLog
 {
     class Program
-    {
-        
-      
+    {     
         private static HandlerXml myClass = new SmartH2O_DLog.HandlerXml("param-data.xml");
         private static MqttClient m_cClient = new MqttClient(IPAddress.Parse("127.0.0.1"));
         private static string[] m_strTopicsInfo = { "parameters" };
