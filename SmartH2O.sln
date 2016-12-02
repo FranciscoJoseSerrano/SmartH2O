@@ -9,6 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartaH2O_Alarm", "SmartaH2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartH2O_DLog", "SmartH2O_DLog\SmartH2O_DLog.csproj", "{905CCF9F-573A-4774-8A37-72CBB48F642F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartH2O_Service", "SmartH2O_Service\SmartH2O_Service.csproj", "{82D454BC-AAAD-46B9-8D25-A9B2F3D19F73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication1", "WindowsFormsApplication1\WindowsFormsApplication1.csproj", "{0145A902-32FC-40BE-B3F2-D5069BE40AA7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{82D454BC-AAAD-46B9-8D25-A9B2F3D19F73} = {82D454BC-AAAD-46B9-8D25-A9B2F3D19F73}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +34,14 @@ Global
 		{905CCF9F-573A-4774-8A37-72CBB48F642F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{905CCF9F-573A-4774-8A37-72CBB48F642F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{905CCF9F-573A-4774-8A37-72CBB48F642F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82D454BC-AAAD-46B9-8D25-A9B2F3D19F73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82D454BC-AAAD-46B9-8D25-A9B2F3D19F73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82D454BC-AAAD-46B9-8D25-A9B2F3D19F73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82D454BC-AAAD-46B9-8D25-A9B2F3D19F73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0145A902-32FC-40BE-B3F2-D5069BE40AA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0145A902-32FC-40BE-B3F2-D5069BE40AA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0145A902-32FC-40BE-B3F2-D5069BE40AA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0145A902-32FC-40BE-B3F2-D5069BE40AA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
