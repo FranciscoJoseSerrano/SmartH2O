@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Net;
 using System.Text;
-using System.Timers;
 using uPLibrary.Networking.M2Mqtt;
 
 namespace SmartH2O_DU
@@ -12,8 +10,6 @@ namespace SmartH2O_DU
         private static SensorNodeDll.SensorNodeDll dll;
         private static HandlerXml handler = new HandlerXml();
         private static MqttClient m_cClient = new MqttClient("127.0.0.1");
-
-
 
 
         static void Main(string[] args)
@@ -46,7 +42,6 @@ namespace SmartH2O_DU
 
         private static void publishParameters(String parameter)
         {
-            Console.WriteLine("SENDING: " + parameter);
             m_cClient.Publish("parameters", Encoding.UTF8.GetBytes(parameter));
 
         }

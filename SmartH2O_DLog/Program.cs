@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Text;
 using uPLibrary.Networking.M2Mqtt;
 using uPLibrary.Networking.M2Mqtt.Messages;
@@ -19,6 +20,14 @@ namespace SmartH2O_DLog
         static void Main(string[] args)
         {
             subscriveParameter();
+            if (!File.Exists(handlerDataXml.XmlFilePath) && storageHandler.existsOnCloud(handlerDataXml.XmlFilePath))
+            {
+                throw new Exception("Make a copy of the file param-data.xml from storage => no local file!!!");
+            }
+            if (!File.Exists(handlerAlarmXml.FilePath) && storageHandler.existsOnCloud(handlerAlarmXml.FilePath))
+            {
+                throw new Exception("Make a copy of the file alarms-data.xml from storage => no local file!!!");
+            }
         }
 
 

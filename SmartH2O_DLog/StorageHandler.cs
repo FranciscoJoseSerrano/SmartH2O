@@ -2,6 +2,7 @@
 using Dropbox.Api.Files;
 using System;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,9 +28,6 @@ namespace SmartH2O_DLog
             {
                 throw new Exception("Cannot connect to dropBox -> NO STORAGE!!");
             }
-
-
-
         }
 
         static async Task Connect()
@@ -71,6 +69,38 @@ namespace SmartH2O_DLog
                 Console.WriteLine("Error ocurred when trying to publish: " + e.Message);
             }
 
+        }
+
+
+        public Boolean existsOnCloud(string file)
+        {
+
+            var task = Task.Run(() => ListRootFolder(file));
+            task.Wait();
+            return task.Result;
+        }
+
+        static async Task<Boolean> ListRootFolder(string file)
+        {
+            try
+            {
+                var list = await dbx.Files.ListFolderAsync("");
+
+                foreach (var item in list.Entries.Where(i => i.IsFile))
+                {
+                    if (item.Name.Contains(file))
+                    {
+                        return true;
+                    }
+
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            return false;
         }
 
     }
