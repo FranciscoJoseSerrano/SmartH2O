@@ -11,11 +11,13 @@ namespace SmartH2O_DLog
 {
     class Program
     {
-        private static HandlerXml handlerXml = new SmartH2O_DLog.HandlerXml("param-data.xml");
+        private static HandlerDataXml handlerDataXml = new SmartH2O_DLog.HandlerDataXml("param-data.xml");
+        private static HandlerAlarmXml handlerAlarm = new HandlerAlarmXml("alarms-data.xml");
+
         private static StorageHandler storageHandler = new StorageHandler();
-        private static MqttClient m_cClient = new MqttClient("127.0.0.1");
-        private static string[] m_strTopicsInfo = { "parameters" };
-        private static byte[] qosLevels = { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE };
+        private static MqttClient m_cClient = new MqttClient("192.168.1.71");
+        private static string[] m_strTopicsInfo = { "parameters", "alarms" };
+        private static byte[] qosLevels = { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE };
 
         static void Main(string[] args)
         {
@@ -26,9 +28,14 @@ namespace SmartH2O_DLog
 
         static void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
         {
-            handlerXml.putInRealXml(Encoding.UTF8.GetString(e.Message));
+            if (e.Topic.Contains("alarms"))
+            {
+                Console.WriteLine(Encoding.UTF8.GetString(e.Message));
+                return;
+            }
+            handlerDataXml.putInDataXml(Encoding.UTF8.GetString(e.Message));
             storageHandler.publishNewInformation();
-            
+
         }
 
         private static void subscriveParameter()

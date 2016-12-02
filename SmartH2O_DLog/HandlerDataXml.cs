@@ -1,26 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Xml;
 
 namespace SmartH2O_DLog
 {
-    class HandlerXml
+    class HandlerDataXml
     {
 
         public string XmlFilePath { get; set; }
 
 
 
-        public HandlerXml(string xmlFile)
+        public HandlerDataXml(string xmlFile)
         {
             this.XmlFilePath = xmlFile;
         }
 
-        public void putInRealXml(String message)
+        public void putInDataXml(String message)
         {
             XmlDocument doc = new XmlDocument();
             doc.LoadXml(message);
@@ -39,7 +34,7 @@ namespace SmartH2O_DLog
 
             if (System.IO.File.Exists(this.XmlFilePath) == false)
             {
-                createXml(realParameter);
+                creatDataXml(realParameter);
             }
             else
             {
@@ -47,7 +42,7 @@ namespace SmartH2O_DLog
             }
         }
 
-        public void createXml(SensorParameterWithDate sensorParameterWithDate)
+        public void creatDataXml(SensorParameterWithDate sensorParameterWithDate)
         {
 
             XmlDocument doc = new XmlDocument();
