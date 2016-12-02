@@ -11,8 +11,8 @@ namespace SmartH2O_DLog
 {
     class Program
     {
-        private static HandlerDataXml handlerDataXml = new SmartH2O_DLog.HandlerDataXml("param-data.xml");
-        private static HandlerAlarmXml handlerAlarm = new HandlerAlarmXml("alarms-data.xml");
+        private static HandlerDataXml handlerDataXml = new SmartH2O_DLog.HandlerDataXml(Properties.Settings.Default.DataFileName);
+        private static HandlerAlarmXml handlerAlarmXml = new HandlerAlarmXml(Properties.Settings.Default.AlarmsFileName);
 
         private static StorageHandler storageHandler = new StorageHandler();
         private static MqttClient m_cClient = new MqttClient("192.168.1.71");

@@ -9,7 +9,7 @@ namespace SmartH2O_DLog
 
     class HandlerAlarmXml
     {
-        private string FilePath { get; set; }
+        public string FilePath { get; set; }
 
         public HandlerAlarmXml(string filepath)
         {

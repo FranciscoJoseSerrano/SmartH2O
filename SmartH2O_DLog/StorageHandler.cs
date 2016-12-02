@@ -40,15 +40,15 @@ namespace SmartH2O_DLog
             Console.WriteLine("{0} - {1}", full.Name.DisplayName, full.Email);
         }
 
-        public static async Task Upload()
+        public static async Task Upload(string file)
         {
-            string newInfo = File.ReadAllText("param-data.xml");
+            string newInfo = File.ReadAllText(file);
             using (var mem = new MemoryStream(Encoding.UTF8.GetBytes(newInfo)))
             {
                 try
                 {
                     var updated = await dbx.Files.UploadAsync(
-                        "/" + Properties.Settings.Default.FIleName,
+                        "/" + file,
                         WriteMode.Overwrite.Instance,
                         body: mem);
                     Console.WriteLine("\n Saved on DropBox " + DateTime.Now);
