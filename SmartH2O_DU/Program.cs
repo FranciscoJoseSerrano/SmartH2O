@@ -41,7 +41,7 @@ namespace SmartH2O_DU
         {
             String xml = handler.createParameter(message);
             publishParameters(xml);
-            //Console.WriteLine(xml);
+
         }
 
         private static void publishParameters(String parameter)

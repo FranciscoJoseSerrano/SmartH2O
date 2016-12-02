@@ -17,7 +17,6 @@ namespace SmartH2O_DLog
     {
         private static DropboxClient dbx = null;
 
-
         public StorageHandler()
         {
 
@@ -60,11 +59,11 @@ namespace SmartH2O_DLog
             }
         }
 
-        public void publishNewInformation()
+        public void publishNewInformation(string file)
         {
             try
             {
-                var uploadInformations = Task.Run(Upload);
+                var uploadInformations = Task.Run(() => Upload(file));
                 uploadInformations.Wait();
             }
             catch (Exception e)
