@@ -15,25 +15,38 @@ namespace SmartaH2O_Alarm
 {
     public partial class Form1 : Form
     {
-        private MqttClient m_cClient = new MqttClient(IPAddress.Parse("127.0.0.1"));
+        private MqttClient m_cClient = new MqttClient(IPAddress.Parse("192.168.1.71"));
         private string[] m_strTopicsInfo = { "parameters" };
         private byte[] qosLevels = { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE };
-     
+        private HandlerXML handlerXML = new HandlerXML();
+
+        private string xmlFileRulesPath = AppDomain.CurrentDomain.BaseDirectory + "trigger_rules.xml";
+
+
+
 
         public Form1()
         {
             InitializeComponent();
-            subscriveParameter();
+            handlerXML.readTriggerRules(xmlFileRulesPath);
+            subscribeParameter();
             
         }
 
-        static void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
+        private void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
         {
-        //  MessageBox.Show("Received = " + Encoding.UTF8.GetString(e.Message) +
-          //  " on topic " + e.Topic);
+            MessageBox.Show(Encoding.UTF8.GetString(e.Message));
+            handlerXML.alarm = "";
+            handlerXML.readXmlFile(Encoding.UTF8.GetString(e.Message));
+            if (handlerXML.alarm != "")
+            {
+                publishAlarms(handlerXML.alarm);
+            }
+            
+
         }
         
-        private void subscriveParameter()
+        private void subscribeParameter()
         {
             m_cClient.Connect(Guid.NewGuid().ToString());
             if (!m_cClient.IsConnected)
@@ -56,13 +69,20 @@ namespace SmartaH2O_Alarm
             }
         }
 
+        private void publishAlarms(String alarms)
+        {
+            m_cClient.Publish("alarms", Encoding.UTF8.GetBytes(alarms));
+
+        }
+
         private void buttonOnOff_Click(object sender, EventArgs e)
         {
            
            
            if (buttonOnOff.Text == "ON")
             {
-                subscriveParameter();
+                handlerXML.readTriggerRules(xmlFileRulesPath);
+                subscribeParameter();
                 buttonOnOff.Text = "OFF";
 
             } else

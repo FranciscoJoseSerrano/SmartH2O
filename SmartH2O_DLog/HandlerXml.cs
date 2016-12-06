@@ -111,7 +111,7 @@ namespace SmartH2O_DLog
             }
              else
             {
-                XmlNode nodeParam = doc.SelectSingleNode("data//"+sensorParameterWithDate.name);
+                XmlNode nodeParam = doc.SelectSingleNode("data/"+sensorParameterWithDate.name);
              
 
                 nodeParam.AppendChild(b);
