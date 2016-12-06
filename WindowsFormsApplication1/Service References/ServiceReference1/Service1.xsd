@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:57175/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SmartH2O_Service" />
   <xs:element name="GetHourlyInSpecificDay">
     <xs:complexType>
       <xs:sequence>
@@ -14,7 +13,27 @@
   <xs:element name="GetHourlyInSpecificDayResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SmartH2O_Service" minOccurs="0" name="GetHourlyInSpecificDayResult" nillable="true" type="q1:ArrayOfDatePerHour" />
+        <xs:element minOccurs="0" name="GetHourlyInSpecificDayResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDailyInThreshold">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="firstYear" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="firstMonth" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="firstDay" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="secondYear" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="secondMonth" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="secondDay" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="parameter" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDailyInThresholdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDailyInThresholdResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

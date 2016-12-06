@@ -136,7 +136,7 @@ namespace SmartH2O_DLog
             {
                 //Console.WriteLine("cheguei aqui \n");
                
-                if (node.Value == name)
+                if (node.Value == id)
                 {
                     return true;
                 }

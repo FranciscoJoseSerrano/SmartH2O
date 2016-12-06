@@ -30,15 +30,15 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DatePerHour date = new DatePerHour();
+           
             
             
-            DatePerHour[] list = client.GetHourlyInSpecificDay("2016", "12", "1", "PH");
+           /* //DatePerHour[] list = client.GetDailyInThreshold("2016", "12", "1", "2016", "12", "2", "PH");
 
             foreach (DatePerHour item in list)
             {
-                MessageBox.Show("2016/12/1" + "PH : " + item.hour + "/" + item.value + "MAX :" + item);
-            }
+                MessageBox.Show("PH : " + item.option + "/" + item.average + "MAX :" + item.max + "MIN : " + item.min);
+            }*/
         }
     }
 }

@@ -14,8 +14,13 @@ namespace SmartH2O_Service
     {
 
         [OperationContract]
-        List<DatePerHour> GetHourlyInSpecificDay(String year, String month, String day, String parameter);
+        String GetHourlyInSpecificDay(String year, String month, String day, String parameter);
 
+        [OperationContract]
+        String GetDailyInThreshold(String firstYear, String firstMonth, String firstDay, String secondYear, String secondMonth, String secondDay, String parameter);
+
+
+        
         // TODO: Add your service operations here
     }
 
@@ -24,8 +29,10 @@ namespace SmartH2O_Service
     [DataContract]
     public class DatePerHour
     {
+
+       
         [DataMember]
-        public string hour { get; set; }
+        public string option { get; set; }
         [DataMember]
         public string average { get; set; }
         [DataMember]
@@ -34,13 +41,17 @@ namespace SmartH2O_Service
         public string min { get; set; }
     
 
-        public DatePerHour(string hour, string average, string max, string min)
+        public DatePerHour(string option, string average, string max, string min)
         {
-            this.hour = hour;
+           
+            this.option = option;
             this.average = average;
             this.max = max;
             this.min = min;
+
         }
+
+        
 
 
     }
