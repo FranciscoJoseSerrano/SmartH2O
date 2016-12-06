@@ -50,12 +50,24 @@ namespace SmartH2O_DLog.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("param-data.xml")]
-        public string FIleName {
+        public string DataFileName {
             get {
-                return ((string)(this["FIleName"]));
+                return ((string)(this["DataFileName"]));
             }
             set {
-                this["FIleName"] = value;
+                this["DataFileName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("alarms-data.xml")]
+        public string AlarmsFileName {
+            get {
+                return ((string)(this["AlarmsFileName"]));
+            }
+            set {
+                this["AlarmsFileName"] = value;
             }
         }
     }
