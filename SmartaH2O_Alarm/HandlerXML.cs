@@ -136,21 +136,21 @@ namespace SmartaH2O_Alarm
             {
                 if (!(float.Parse(PH_water_value.Replace(".", ",")) < float.Parse(PH_less_then)))
                 {
-                    AddAlarmAtribute(node, RULE_LESS, PH_less_then);
+                    AddAlarmAtribute(node, RULE_LESS);
                 }
             }
             if (PH_equal_condition == "ACTIVE")
             {
                 if (!(float.Parse(PH_water_value.Replace(".", ",")) == float.Parse(PH_equal)))
                 {
-                    AddAlarmAtribute(node, RULE_EQUAL, PH_equal);
+                    AddAlarmAtribute(node, RULE_EQUAL);
                 }
             }
             if (PH_greater_then_condition == "ACTIVE")
             {
                 if (!(float.Parse(PH_water_value.Replace(".", ",")) > float.Parse(PH_greater_then)))
                 {
-                    AddAlarmAtribute(node, RULE_GREATER, PH_greater_then);
+                    AddAlarmAtribute(node, RULE_GREATER);
                 }
             }
             if (PH_between_condition == "ACTIVE")
@@ -163,11 +163,11 @@ namespace SmartaH2O_Alarm
                 {
                     if (!(value >= min))
                     {
-                        AddAlarmAtribute(node, RULE_BETWEEN_MIN, PH_between_min);
+                        AddAlarmAtribute(node, RULE_BETWEEN_MIN);
                     }
                     else if (!(value <= max))
                     {
-                        AddAlarmAtribute(node, RULE_BETWEEN_MAX, PH_between_max);
+                        AddAlarmAtribute(node, RULE_BETWEEN_MAX);
                     }
 
                 }
@@ -181,7 +181,7 @@ namespace SmartaH2O_Alarm
             {
                 if (!(float.Parse(NH3_water_value.Replace(".", ",")) < float.Parse(NH3_less_then)))
                 {
-                    AddAlarmAtribute(node, RULE_LESS, NH3_less_then);
+                    AddAlarmAtribute(node, RULE_LESS);
                 }
 
             }
@@ -189,7 +189,7 @@ namespace SmartaH2O_Alarm
             {
                 if (!(float.Parse(NH3_water_value.Replace(".", ",")) == float.Parse(NH3_equal)))
                 {
-                    AddAlarmAtribute(node, RULE_EQUAL, NH3_equal);
+                    AddAlarmAtribute(node, RULE_EQUAL);
                 }
 
             }
@@ -197,7 +197,7 @@ namespace SmartaH2O_Alarm
             {
                 if (!(float.Parse(NH3_water_value.Replace(".", ",")) > float.Parse(NH3_greater_then)))
                 {
-                    AddAlarmAtribute(node, RULE_GREATER, NH3_greater_then);
+                    AddAlarmAtribute(node, RULE_GREATER);
                 }
 
             }
@@ -211,11 +211,11 @@ namespace SmartaH2O_Alarm
                 {
                     if (!(value >= min))
                     {
-                        AddAlarmAtribute(node, RULE_BETWEEN_MIN, NH3_between_min);
+                        AddAlarmAtribute(node, RULE_BETWEEN_MIN);
                     }
                     else if (!(value <= max))
                     {
-                        AddAlarmAtribute(node, RULE_BETWEEN_MAX, NH3_between_max);
+                        AddAlarmAtribute(node, RULE_BETWEEN_MAX);
                     }
 
                 }
@@ -230,14 +230,14 @@ namespace SmartaH2O_Alarm
             {
                 if (!(float.Parse(CI2_water_value.Replace(".", ",")) < float.Parse(CI2_less_then)))
                 {
-                    AddAlarmAtribute(node, RULE_LESS, CI2_less_then);
+                    AddAlarmAtribute(node, RULE_LESS);
                 }
             }
             if (CI2_equal_condition == "ACTIVE")
             {
                 if (!(float.Parse(CI2_water_value.Replace(".", ",")) == float.Parse(CI2_equal)))
                 {
-                    AddAlarmAtribute(node, RULE_EQUAL, CI2_equal);
+                    AddAlarmAtribute(node, RULE_EQUAL);
                 }
 
             }
@@ -245,7 +245,7 @@ namespace SmartaH2O_Alarm
             {
                 if (!(float.Parse(CI2_water_value.Replace(".", ",")) > float.Parse(CI2_greater_then)))
                 {
-                    AddAlarmAtribute(node, RULE_GREATER, CI2_greater_then);
+                    AddAlarmAtribute(node, RULE_GREATER);
                 }
 
             }
@@ -259,11 +259,11 @@ namespace SmartaH2O_Alarm
                 {
                     if (!(value >= min))
                     {
-                        AddAlarmAtribute(node, RULE_BETWEEN_MIN, CI2_between_min);
+                        AddAlarmAtribute(node, RULE_BETWEEN_MIN);
                     }
                     else if (!(value <= max))
                     {
-                        AddAlarmAtribute(node, RULE_BETWEEN_MAX, CI2_between_max);
+                        AddAlarmAtribute(node, RULE_BETWEEN_MAX);
                     }
 
                 }
@@ -278,7 +278,7 @@ namespace SmartaH2O_Alarm
             return (value.CompareTo(min) >= 0.0) && (value.CompareTo(max) <= 0.0);
         }
 
-        private void AddAlarmAtribute(XmlNode node, string alarmCondition,string conditionValue)
+        private void AddAlarmAtribute(XmlNode node, string alarmCondition)
         {
             string year_value = date.Attributes["year"].InnerText;
             string month_value = date.Attributes["month"].InnerText;
@@ -294,7 +294,7 @@ namespace SmartaH2O_Alarm
             XmlAttribute hour = docWaterParams.CreateAttribute("hour");
             XmlAttribute minute = docWaterParams.CreateAttribute("minute");
             XmlAttribute second = docWaterParams.CreateAttribute("second");
-            XmlAttribute cValue = docWaterParams.CreateAttribute("condition_value");
+
 
             alarm_condition.Value = alarmCondition;
             year.Value = year_value;
@@ -303,8 +303,8 @@ namespace SmartaH2O_Alarm
             hour.Value = hour_value;
             minute.Value = minute_value;
             second.Value = second_value;
-            cValue.Value = conditionValue;
-    
+
+
             node.Attributes.Append(alarm_condition);
             node.Attributes.Append(year);
             node.Attributes.Append(month);
@@ -312,7 +312,7 @@ namespace SmartaH2O_Alarm
             node.Attributes.Append(hour);
             node.Attributes.Append(minute);
             node.Attributes.Append(second);
-            node.Attributes.Append(cValue);
+
 
             alarm = node.OuterXml;
 
