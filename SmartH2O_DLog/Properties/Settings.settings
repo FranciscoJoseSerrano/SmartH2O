@@ -1,18 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SmartH2O_DLog.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
   <Profiles />
-  <Settings>
-    <Setting Name="AcessToken" Type="System.String" Scope="User">
-      <Value Profile="(Default)">NhVobH0ma4cAAAAAAAAAB6sFUE2h7IGMyhz_zGLX54ZkQfhhnNUrNs6fiSBij79H</Value>
-    </Setting>
-    <Setting Name="StoragePath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Aplicativos/SmartH2O_DLog</Value>
-    </Setting>
-    <Setting Name="DataFileName" Type="System.String" Scope="User">
-      <Value Profile="(Default)">param-data.xml</Value>
-    </Setting>
-    <Setting Name="AlarmsFileName" Type="System.String" Scope="User">
-      <Value Profile="(Default)">alarms-data.xml</Value>
-    </Setting>
-  </Settings>
+  <Settings />
 </SettingsFile>

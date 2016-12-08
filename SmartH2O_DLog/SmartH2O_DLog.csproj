@@ -61,7 +61,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="SensorParameterWithDate.cs" />
-    <Compile Include="StorageHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

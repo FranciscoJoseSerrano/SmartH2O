@@ -20,17 +20,17 @@ namespace SmartH2O_Service
         String GetDailyInThreshold(String firstYear, String firstMonth, String firstDay, String secondYear, String secondMonth, String secondDay, String parameter);
 
 
-        
+
         // TODO: Add your service operations here
     }
 
-        
-      
+
+
     [DataContract]
     public class DatePerHour
     {
 
-       
+
         [DataMember]
         public string option { get; set; }
         [DataMember]
@@ -39,24 +39,18 @@ namespace SmartH2O_Service
         public string max { get; set; }
         [DataMember]
         public string min { get; set; }
-    
+
 
         public DatePerHour(string option, string average, string max, string min)
         {
-           
+
             this.option = option;
             this.average = average;
             this.max = max;
             this.min = min;
 
         }
-
-        
-
-
     }
 
-
-   
 
 }

@@ -1,17 +1,16 @@
 ﻿using System.IO;
-using System.Windows.Forms;
 using System.Xml;
 
-namespace SmartH2O_DLog
+namespace SmartH2O_Service
 {
-
-    class HandlerAlarmXml
+    public class HandlerAlarmXml
     {
         public string FilePath { get; set; }
 
-        public HandlerAlarmXml(string filepath)
+        public HandlerAlarmXml()
         {
-            FilePath = filepath;
+            FilePath = Properties.Settings.Default.XmlAlarmsPath;
+            
         }
 
         public void putInAlarmXml(string message)
@@ -36,7 +35,7 @@ namespace SmartH2O_DLog
 
             XmlElement alarm = createAlarmElement(alarmNode, doc2);
             doc2.LastChild.AppendChild(alarm);
-      
+
 
             doc2.Save(FilePath);
         }
@@ -82,4 +81,5 @@ namespace SmartH2O_DLog
             return parameter;
         }
     }
+}
 }

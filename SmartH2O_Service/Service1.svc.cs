@@ -14,7 +14,8 @@ namespace SmartH2O_Service
     public class Service1 : SmartH20Service
     {
         private XmlDocument doc = new XmlDocument();
-        
+        private HandlerAlarmXml handlerAlarmXml = new HandlerAlarmXml();
+        private HandlerDataXml handlerDataXml = new HandlerDataXml();
         private String path = @"C:\Users\joaos\Desktop\IS_Project\SmartH2O\SmartH2O_DLog\bin\Debug\param-data.xml";
 
         public String GetDailyInThreshold(string firstYear, string firstMonth, string firstDay, string secondYear, string secondMonth, string secondDay, string parameter)
@@ -70,7 +71,7 @@ namespace SmartH2O_Service
 
         public String GetHourlyInSpecificDay(string year, string month, string day, string parameter)
         {
-            
+
             List<DatePerHour> listValues;
             listValues = new List<DatePerHour>();
             doc.Load(this.path);
@@ -82,8 +83,8 @@ namespace SmartH2O_Service
                 float min = 100;
                 int number = 0;
                 double average = 0.0;
-                XmlNodeList value = doc.SelectNodes("/data/" + parameter + "/H2O[@day=" + day + "][@month=" + month + "][@year=" + year + "][@hour="+ i +"]/value");
-                
+                XmlNodeList value = doc.SelectNodes("/data/" + parameter + "/H2O[@day=" + day + "][@month=" + month + "][@year=" + year + "][@hour=" + i + "]/value");
+
                 if (value.Count != 0)
                 {
 
@@ -102,11 +103,11 @@ namespace SmartH2O_Service
                         }
 
                         sum += trueValue;
-                        number++;                        
+                        number++;
                     }
 
                     average = (double)sum / number;
-                   
+
                     listValues.Add(new DatePerHour((Convert.ToString(i)), average.ToString("0.0"), max.ToString("0.0"), min.ToString("0.0")));
                 }
             }
@@ -149,21 +150,21 @@ namespace SmartH2O_Service
 
             XmlElement root = docSave.CreateElement("data");
             XmlElement nameParameter = docSave.CreateElement(parameter);
-            
+
 
 
             docSave.AppendChild(root);
             root.AppendChild(nameParameter);
-           
+
 
             foreach (DatePerHour datePerHour in hourly)
             {
-                XmlElement element = createElementHourly(datePerHour,date, docSave);
+                XmlElement element = createElementHourly(datePerHour, date, docSave);
                 nameParameter.AppendChild(element);
             }
 
             return docSave.OuterXml;
-            
+
         }
 
         private XmlElement createElementDaily(DatePerHour date, DateTime firstDate, DateTime lastDate, XmlDocument docSave)
@@ -198,7 +199,7 @@ namespace SmartH2O_Service
 
         private XmlElement createElementHourly(DatePerHour date, DateTime dateTime, XmlDocument docSave)
         {
-           
+
             XmlElement h2o = docSave.CreateElement("date");
             h2o.SetAttribute("day", Convert.ToString(dateTime.Day));
             h2o.SetAttribute("month", Convert.ToString(dateTime.Month));
