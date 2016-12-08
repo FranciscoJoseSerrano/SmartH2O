@@ -35,7 +35,6 @@ namespace SmartaH2O_Alarm
 
         private void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
         {
-            MessageBox.Show(Encoding.UTF8.GetString(e.Message));
             handlerXML.alarm = "";
             handlerXML.readXmlFile(Encoding.UTF8.GetString(e.Message));
             if (handlerXML.alarm != "")

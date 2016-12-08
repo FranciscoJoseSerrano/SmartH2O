@@ -9,7 +9,7 @@ namespace SmartH2O_DLog
 {
     class Program
     {
-        private static HandlerDataXml handlerDataXml = new SmartH2O_DLog.HandlerDataXml(Properties.Settings.Default.DataFileName);
+        private static HandlerDataXml handlerDataXml = new HandlerDataXml(Properties.Settings.Default.DataFileName);
         private static HandlerAlarmXml handlerAlarmXml = new HandlerAlarmXml(Properties.Settings.Default.AlarmsFileName);
 
         private static StorageHandler storageHandler = new StorageHandler();
@@ -36,6 +36,7 @@ namespace SmartH2O_DLog
         {
             if (e.Topic.Contains("alarms"))
             {
+                Console.WriteLine(Encoding.UTF8.GetString(e.Message));
                 handlerAlarmXml.putInAlarmXml(Encoding.UTF8.GetString(e.Message));
                 storageHandler.publishNewInformation(handlerAlarmXml.FilePath);
             }

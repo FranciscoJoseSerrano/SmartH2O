@@ -16,14 +16,14 @@ namespace SmartH2O_DLog
         public void putInAlarmXml(string message)
         {
             XmlDocument doc2;
-            //alarm_condition
-            //<?xml version=\"1.0\"?><h2o day=\"2\" month=\"12\" year=\"2016\" hour=\"12\" 
-            //minute =\"59\" second=\"30\" type=\"data\"><parameter name=\"PH\"><id>1</id><value>5.8</value></parameter></h2o>
+            //"<parameter name="NH3" alarm_condition="beetween_min"><id>2</id><value>1.24</value></parameter>"
+
 
             XmlDocument doc = new XmlDocument();
             doc.LoadXml(message);
 
-            XmlNode alarm = doc.SelectSingleNode("/h2o");
+            XmlNode alarmNode = doc.SelectSingleNode("/parameter");
+
 
 
             if (!File.Exists(FilePath))
@@ -33,11 +33,15 @@ namespace SmartH2O_DLog
             else
             {
                 doc2 = new XmlDocument();
-                doc2.LoadXml(FilePath);
+                doc2.Load(FilePath);
             }
 
-            XmlNode lastChild = doc2.LastChild;
-            lastChild.AppendChild(alarm);
+            XmlElement alarm = createAlarmElement(alarmNode, doc2);
+            doc2.LastChild.AppendChild(alarm);
+
+
+
+
 
             doc2.Save(FilePath);
         }
@@ -48,11 +52,32 @@ namespace SmartH2O_DLog
             XmlDeclaration decl = doc.CreateXmlDeclaration("1.0", null, null);
             doc.AppendChild(decl);
 
-            XmlElement root = doc.CreateElement("Alarms");
+            XmlElement root = doc.CreateElement("alarms");
             doc.AppendChild(root);
 
             return doc;
 
+        }
+
+        private XmlElement createAlarmElement(XmlNode a, XmlDocument doc)
+        {
+
+            XmlElement parameter = doc.CreateElement("parameter");
+            parameter.SetAttribute("name", a.Attributes["name"].InnerText);
+            parameter.SetAttribute("alarm_condition", a.Attributes["alarm_condition"].InnerText);
+
+
+            XmlElement parameterid = doc.CreateElement("id");
+            parameterid.InnerText = a["id"].InnerText;
+
+            XmlElement parameterValue = doc.CreateElement("value");
+            parameterValue.InnerText = a["value"].InnerText;
+
+            parameter.AppendChild(parameterid);
+            parameter.AppendChild(parameterValue);
+
+
+            return parameter;
         }
     }
 }

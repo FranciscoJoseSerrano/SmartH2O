@@ -146,14 +146,14 @@ namespace SmartaH2O_Alarm
                     AddAlarmAtribute(node, RULE_EQUAL);
                 }
             }
-             if (PH_greater_then_condition == "ACTIVE")
+            if (PH_greater_then_condition == "ACTIVE")
             {
                 if (!(float.Parse(PH_water_value.Replace(".", ",")) > float.Parse(PH_greater_then)))
                 {
                     AddAlarmAtribute(node, RULE_GREATER);
                 }
             }
-             if (PH_between_condition == "ACTIVE")
+            if (PH_between_condition == "ACTIVE")
             {
                 float min = float.Parse(PH_between_min);
                 float value = float.Parse(PH_water_value.Replace(".", ","));
@@ -174,22 +174,18 @@ namespace SmartaH2O_Alarm
             }
         }
 
-
-
-
-
         public void compareNH3(XmlNode node)
         {
             string NH3_water_value = node["value"].InnerText;
             if (NH3_less_then_condition == "ACTIVE")
             {
-                if (!(float.Parse(NH3_water_value.Replace(".",",")) < float.Parse(NH3_less_then)))
+                if (!(float.Parse(NH3_water_value.Replace(".", ",")) < float.Parse(NH3_less_then)))
                 {
                     AddAlarmAtribute(node, RULE_LESS);
                 }
 
             }
-             if (NH3_equal_condition == "ACTIVE")
+            if (NH3_equal_condition == "ACTIVE")
             {
                 if (!(float.Parse(NH3_water_value.Replace(".", ",")) == float.Parse(NH3_equal)))
                 {
@@ -197,7 +193,7 @@ namespace SmartaH2O_Alarm
                 }
 
             }
-             if (NH3_greater_then_condition == "ACTIVE")
+            if (NH3_greater_then_condition == "ACTIVE")
             {
                 if (!(float.Parse(NH3_water_value.Replace(".", ",")) > float.Parse(NH3_greater_then)))
                 {
@@ -205,7 +201,7 @@ namespace SmartaH2O_Alarm
                 }
 
             }
-             if (NH3_between_condition == "ACTIVE")
+            if (NH3_between_condition == "ACTIVE")
             {
                 float min = float.Parse(NH3_between_min);
                 float value = float.Parse(NH3_water_value.Replace(".", ","));
@@ -237,7 +233,7 @@ namespace SmartaH2O_Alarm
                     AddAlarmAtribute(node, RULE_LESS);
                 }
             }
-             if (CI2_equal_condition == "ACTIVE")
+            if (CI2_equal_condition == "ACTIVE")
             {
                 if (!(float.Parse(CI2_water_value.Replace(".", ",")) == float.Parse(CI2_equal)))
                 {
@@ -245,7 +241,7 @@ namespace SmartaH2O_Alarm
                 }
 
             }
-             if (CI2_greater_then_condition == "ACTIVE")
+            if (CI2_greater_then_condition == "ACTIVE")
             {
                 if (!(float.Parse(CI2_water_value.Replace(".", ",")) > float.Parse(CI2_greater_then)))
                 {
@@ -253,7 +249,7 @@ namespace SmartaH2O_Alarm
                 }
 
             }
-             if (CI2_between_condition == "ACTIVE")
+            if (CI2_between_condition == "ACTIVE")
             {
                 float min = float.Parse(CI2_between_min);
                 float value = float.Parse(CI2_water_value.Replace(".", ","));
@@ -284,15 +280,10 @@ namespace SmartaH2O_Alarm
 
         private void AddAlarmAtribute(XmlNode node, string alarmCondition)
         {
-           
-                XmlAttribute alarm_condition = docWaterParams.CreateAttribute("alarm_condition");
-                alarm_condition.Value = alarmCondition;
-                node.Attributes.Append(alarm_condition);
-                MessageBox.Show("cheguei aqui aos alarmes");
-                alarm = node.OuterXml;
-                
-               
-        
+            XmlAttribute alarm_condition = docWaterParams.CreateAttribute("alarm_condition");
+            alarm_condition.Value = alarmCondition;
+            node.Attributes.Append(alarm_condition);
+            alarm = node.OuterXml;
         }
     }
 

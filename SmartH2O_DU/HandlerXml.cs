@@ -43,7 +43,7 @@ namespace SmartH2O_DU
             root.SetAttribute("hour", Convert.ToString(date.Hour));
             root.SetAttribute("minute", Convert.ToString(date.Minute));
             root.SetAttribute("second", Convert.ToString(date.Second));
-            root.SetAttribute("type", "data");
+
 
             doc.AppendChild(root);
             XmlElement param = createSensorParameter(parameter.id, parameter.name, parameter.value, doc);
