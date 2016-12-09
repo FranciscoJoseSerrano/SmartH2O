@@ -1,18 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.IO;
 using System.Xml;
 
 namespace SmartH2O_Service
 {
-    public class HandlerDataXml
+    class HandlerDataXml
     {
-        public String XmlFilePath { get; set; }
+
+        private String XmlFilePath { get; set; }
 
         public HandlerDataXml()
         {
-            XmlFilePath = Properties.Settings.Default.XmlDataPath;
+            XmlFilePath = AppDomain.CurrentDomain.BaseDirectory + "App_Data" + "/" + Properties.Settings.Default.XmlDataPath;
         }
 
         public void putInDataXml(String message)
@@ -32,7 +31,7 @@ namespace SmartH2O_Service
             string value = parameter["value"].InnerText;
             SensorParameterWithDate realParameter = new SensorParameterWithDate(second, minute, hour, day, month, year, id, name, value);
 
-            if (System.IO.File.Exists(this.XmlFilePath) == false)
+            if (File.Exists(this.XmlFilePath) == false)
             {
                 creatDataXml(realParameter);
             }
@@ -42,7 +41,7 @@ namespace SmartH2O_Service
             }
         }
 
-        public void creatDataXml(SensorParameterWithDate sensorParameterWithDate)
+        private void creatDataXml(SensorParameterWithDate sensorParameterWithDate)
         {
 
             XmlDocument doc = new XmlDocument();
@@ -67,7 +66,8 @@ namespace SmartH2O_Service
 
         }
 
-        private XmlElement createSensorWithDateParameter(String second, String minute, String hour, String day, String month, String year, String id, String name, String value, XmlDocument doc)
+        private XmlElement createSensorWithDateParameter(String second, String minute, String hour, String day, String month, String year,
+            String id, String name, String value, XmlDocument doc)
         {
 
             XmlElement h2o = doc.CreateElement("H2O");
@@ -139,5 +139,4 @@ namespace SmartH2O_Service
             return false;
         }
     }
-}
 }

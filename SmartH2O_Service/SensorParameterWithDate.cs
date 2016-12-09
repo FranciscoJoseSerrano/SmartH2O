@@ -5,7 +5,7 @@ using System.Web;
 
 namespace SmartH2O_Service
 {
-    public class SensorParameterWithDate
+    class SensorParameterWithDate
     {
         public String second { get; set; }
         public String minute { get; set; }
@@ -29,6 +29,7 @@ namespace SmartH2O_Service
             this.id = id;
             this.name = name;
             this.value = value;
+
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using uPLibrary.Networking.M2Mqtt;
 using uPLibrary.Networking.M2Mqtt.Messages;
@@ -10,10 +11,7 @@ namespace SmartH2O_DLog
 {
     class Program
     {
-        private static HandlerDataXml handlerDataXml = new HandlerDataXml(Properties.Settings.Default.DataFileName);
-        private static HandlerAlarmXml handlerAlarmXml = new HandlerAlarmXml(Properties.Settings.Default.AlarmsFileName);
-
-        private static StorageHandler storageHandler = new StorageHandler();
+        private static FilesWriterService.FilesWriterClient client = new FilesWriterService.FilesWriterClient();
         private static MqttClient m_cClient = new MqttClient("127.0.0.1");
         private static string[] m_strTopicsInfo = { "parameters", "alarms" };
         private static byte[] qosLevels = { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE };
@@ -27,15 +25,14 @@ namespace SmartH2O_DLog
 
         static void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
         {
-   
+
             if (e.Topic.Contains("alarms"))
             {
-                handlerAlarmXml.putInAlarmXml(Encoding.UTF8.GetString(e.Message));
+                var task = Task.Run(() => client.sendWaterAlarmAsync(Encoding.UTF8.GetString(e.Message)));
             }
             else
             {
-                handlerDataXml.putInDataXml(Encoding.UTF8.GetString(e.Message));
-                storageHandler.publishNewInformation(handlerDataXml.XmlFilePath);
+                var task2 = Task.Run(() => client.sendWaterParameterAsync(Encoding.UTF8.GetString(e.Message)));
             }
         }
 

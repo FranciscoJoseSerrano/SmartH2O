@@ -24,7 +24,16 @@ namespace SmartH2O_Service
         // TODO: Add your service operations here
     }
 
+    [ServiceContract]
+    public interface FilesWriter
+    {
+        [OperationContract]
+        void sendWaterParameter(string message);
 
+        [OperationContract]
+        void sendWaterAlarm(string message);
+
+    }
 
     [DataContract]
     public class DatePerHour
@@ -40,7 +49,7 @@ namespace SmartH2O_Service
         [DataMember]
         public string min { get; set; }
 
-
+        
         public DatePerHour(string option, string average, string max, string min)
         {
 

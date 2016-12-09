@@ -1,21 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
-using System.Windows.Forms;
 using System.Xml;
 
 namespace SmartH2O_Service
 {
 
-    public class Service1 : SmartH20Service
+    public class UserService : SmartH20Service
     {
         private XmlDocument doc = new XmlDocument();
-        private HandlerAlarmXml handlerAlarmXml = new HandlerAlarmXml();
-        private HandlerDataXml handlerDataXml = new HandlerDataXml();
+
         private String path = @"C:\Users\joaos\Desktop\IS_Project\SmartH2O\SmartH2O_DLog\bin\Debug\param-data.xml";
 
         public String GetDailyInThreshold(string firstYear, string firstMonth, string firstDay, string secondYear, string secondMonth, string secondDay, string parameter)
@@ -172,7 +165,7 @@ namespace SmartH2O_Service
 
             XmlElement h2o = docSave.CreateElement("date");
             h2o.InnerText = Convert.ToString(firstDate.Day) + "/" + Convert.ToString(firstDate.Month) +
-               "/" + Convert.ToString(firstDate.); //ACABAR ESTA MERDA CARALHO  !!!!!!!!!!!!!
+               "/" + Convert.ToString(firstDate); //ACABAR ESTA MERDA CARALHO  !!!!!!!!!!!!!
 
 
 

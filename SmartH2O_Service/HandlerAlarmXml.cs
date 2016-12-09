@@ -1,16 +1,18 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Xml;
 
 namespace SmartH2O_Service
 {
-    public class HandlerAlarmXml
+    class HandlerAlarmXml
     {
-        public string FilePath { get; set; }
+        private string FilePath { get; set; }
 
         public HandlerAlarmXml()
         {
-            FilePath = Properties.Settings.Default.XmlAlarmsPath;
-            
+
+            FilePath = AppDomain.CurrentDomain.BaseDirectory + "App_Data" + "/" + Properties.Settings.Default.XmlAlarmsPath;
+
         }
 
         public void putInAlarmXml(string message)
@@ -76,10 +78,7 @@ namespace SmartH2O_Service
             parameter.AppendChild(parameterid);
             parameter.AppendChild(parameterValue);
             parameter.AppendChild(condition);
-
-
             return parameter;
         }
     }
-}
 }

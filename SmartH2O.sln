@@ -8,6 +8,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartaH2O_Alarm", "SmartaH2O_Alarm\SmartaH2O_Alarm.csproj", "{ABC931C4-452D-44DA-A301-2253CE09F4B5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartH2O_DLog", "SmartH2O_DLog\SmartH2O_DLog.csproj", "{905CCF9F-573A-4774-8A37-72CBB48F642F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{82D454BC-AAAD-46B9-8D25-A9B2F3D19F73} = {82D454BC-AAAD-46B9-8D25-A9B2F3D19F73}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartH2O_Service", "SmartH2O_Service\SmartH2O_Service.csproj", "{82D454BC-AAAD-46B9-8D25-A9B2F3D19F73}"
 EndProject
