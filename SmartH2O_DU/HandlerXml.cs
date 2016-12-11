@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Xml;
+using System.Xml.Schema;
 
 namespace SmartH2O_DU
 {
@@ -7,13 +8,14 @@ namespace SmartH2O_DU
     {
 
         private SensorsParameter parameter;
+        private string parametersXSDPath = AppDomain.CurrentDomain.BaseDirectory + "parameters.xsd";
+        private string ValidationMessage { get; set; }
+        private Boolean isValid;
 
         public HandlerXml()
         {
 
         }
-
-
 
         public String createParameter(String message)
         {
@@ -21,11 +23,44 @@ namespace SmartH2O_DU
             splited = message.Split(';');
             parameter = new SensorsParameter(splited[0], splited[1], splited[2]);
             String xml = createXmlDocument();
+            if (isXMLValid(xml))
+            {
+                return xml;
+            }
+            return "";
 
-            return xml;
+
 
         }
 
+        private bool isXMLValid(string xml)
+        {
+
+            XmlDocument xmlDocument = new XmlDocument();
+            xmlDocument.LoadXml(xml);
+            isValid = true;
+            ValidationMessage = "Document Valid";
+            try
+            {
+                ValidationEventHandler eventHandler = new ValidationEventHandler(MyEvent);
+                xmlDocument.Schemas.Add(null, parametersXSDPath);
+                xmlDocument.Validate(eventHandler);
+            }
+            catch (XmlException ex)
+            {
+                isValid = false;
+                ValidationMessage = String.Format("Invalid Document {0}", ex.Message);
+            }
+            return isValid;
+        }
+
+
+        private void MyEvent(object sender, ValidationEventArgs e)
+        {
+            isValid = false;
+            ValidationMessage = "Document is invalid" + e.Message;
+        }
+    
 
         private String createXmlDocument()
         {
@@ -49,7 +84,6 @@ namespace SmartH2O_DU
             XmlElement param = createSensorParameter(parameter.id, parameter.name, parameter.value, doc);
 
             root.AppendChild(param);
-
             return doc.OuterXml;
 
         }

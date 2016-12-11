@@ -58,6 +58,24 @@
     <H2O day="10" month="12" year="2016" hour="21" minute="31" second="32">
       <value>1.25</value>
     </H2O>
+    <H2O day="11" month="12" year="2016" hour="16" minute="35" second="16">
+      <value>1.29</value>
+    </H2O>
+    <H2O day="11" month="12" year="2016" hour="16" minute="36" second="24">
+      <value>1.2</value>
+    </H2O>
+    <H2O day="11" month="12" year="2016" hour="16" minute="36" second="39">
+      <value>1.16</value>
+    </H2O>
+    <H2O day="11" month="12" year="2016" hour="16" minute="36" second="54">
+      <value>1.94</value>
+    </H2O>
+    <H2O day="11" month="12" year="2016" hour="16" minute="37" second="9">
+      <value>1.15</value>
+    </H2O>
+    <H2O day="11" month="12" year="2016" hour="16" minute="37" second="24">
+      <value>1.36</value>
+    </H2O>
   </NH3>
   <CI2 id="3">
     <H2O day="10" month="12" year="2016" hour="21" minute="27" second="7">
@@ -114,6 +132,18 @@
     <H2O day="10" month="12" year="2016" hour="21" minute="31" second="22">
       <value>7.1</value>
     </H2O>
+    <H2O day="11" month="12" year="2016" hour="16" minute="36" second="29">
+      <value>10.3</value>
+    </H2O>
+    <H2O day="11" month="12" year="2016" hour="16" minute="36" second="44">
+      <value>7.7</value>
+    </H2O>
+    <H2O day="11" month="12" year="2016" hour="16" minute="36" second="59">
+      <value>9.2</value>
+    </H2O>
+    <H2O day="11" month="12" year="2016" hour="16" minute="37" second="14">
+      <value>9.4</value>
+    </H2O>
   </CI2>
   <PH id="1">
     <H2O day="10" month="12" year="2016" hour="21" minute="27" second="12">
@@ -169,6 +199,18 @@
     </H2O>
     <H2O day="10" month="12" year="2016" hour="21" minute="31" second="27">
       <value>6.1</value>
+    </H2O>
+    <H2O day="11" month="12" year="2016" hour="16" minute="36" second="34">
+      <value>5.3</value>
+    </H2O>
+    <H2O day="11" month="12" year="2016" hour="16" minute="36" second="49">
+      <value>6.4</value>
+    </H2O>
+    <H2O day="11" month="12" year="2016" hour="16" minute="37" second="4">
+      <value>5.1</value>
+    </H2O>
+    <H2O day="11" month="12" year="2016" hour="16" minute="37" second="19">
+      <value>6.3</value>
     </H2O>
   </PH>
 </data>

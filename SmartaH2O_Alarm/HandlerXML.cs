@@ -55,11 +55,13 @@ namespace SmartaH2O_Alarm
         private static string RULE_BETWEEN_MIN = "beetween_min";
 
         private XmlNode date;
-
-
+        private string triggerRulesXSDPath = AppDomain.CurrentDomain.BaseDirectory + "trigger_rules.xsd";
+        private string ValidationMessage { get; set; }
+        private Boolean isValid;
         public string alarm { get; set; }
-
         XmlDocument docWaterParams;
+
+
 
         public HandlerXML()
         {
@@ -69,41 +71,45 @@ namespace SmartaH2O_Alarm
 
         public void readTriggerRules(string triggerRulesXMLPath)
         {
+
             XmlDocument doc = new XmlDocument();
             doc.Load(triggerRulesXMLPath);
+            if (isXMLValid(doc))
+            {
 
 
-            PH_less_then_condition = doc.SelectSingleNode("rules/parameter[@name='PH']/rule/less_then/@condition").InnerText;
-            PH_less_then = doc.SelectSingleNode("rules/parameter[@name='PH']/rule/less_then").InnerText;
-            PH_equal_condition = doc.SelectSingleNode("rules/parameter[@name ='PH']/rule/equal/@condition").InnerText;
-            PH_equal = doc.SelectSingleNode("rules/parameter[@name ='PH']/rule/equal").InnerText;
-            PH_greater_then_condition = doc.SelectSingleNode("rules/parameter[@name='PH']/rule/greater_then/@condition").InnerText;
-            PH_greater_then = doc.SelectSingleNode("rules/parameter[@name='PH']/rule/greater_then").InnerText;
-            PH_between_condition = doc.SelectSingleNode("rules/parameter[@name='PH']/rule/between/@condition").InnerText;
-            PH_between_min = doc.SelectSingleNode("rules/parameter[@name='PH']/rule/between/min").InnerText;
-            PH_between_max = doc.SelectSingleNode("rules/parameter[@name='PH']/rule/between/max").InnerText;
+                PH_less_then_condition = doc.SelectSingleNode("rules/parameter[@name='PH']/rule/less_then/@condition").InnerText;
+                PH_less_then = doc.SelectSingleNode("rules/parameter[@name='PH']/rule/less_then").InnerText;
+                PH_equal_condition = doc.SelectSingleNode("rules/parameter[@name ='PH']/rule/equal/@condition").InnerText;
+                PH_equal = doc.SelectSingleNode("rules/parameter[@name ='PH']/rule/equal").InnerText;
+                PH_greater_then_condition = doc.SelectSingleNode("rules/parameter[@name='PH']/rule/greater_then/@condition").InnerText;
+                PH_greater_then = doc.SelectSingleNode("rules/parameter[@name='PH']/rule/greater_then").InnerText;
+                PH_between_condition = doc.SelectSingleNode("rules/parameter[@name='PH']/rule/between/@condition").InnerText;
+                PH_between_min = doc.SelectSingleNode("rules/parameter[@name='PH']/rule/between/min").InnerText;
+                PH_between_max = doc.SelectSingleNode("rules/parameter[@name='PH']/rule/between/max").InnerText;
 
-            NH3_less_then_condition = doc.SelectSingleNode("rules/parameter[@name='NH3']/rule/less_then/@condition").InnerText;
-            NH3_less_then = doc.SelectSingleNode("rules/parameter[@name='NH3']/rule/less_then").InnerText;
-            NH3_equal_condition = doc.SelectSingleNode("rules/parameter[@name ='NH3']/rule/equal/@condition").InnerText;
-            NH3_equal = doc.SelectSingleNode("rules/parameter[@name ='NH3']/rule/equal").InnerText;
-            NH3_greater_then_condition = doc.SelectSingleNode("rules/parameter[@name='NH3']/rule/greater_then/@condition").InnerText;
-            NH3_greater_then = doc.SelectSingleNode("rules/parameter[@name='NH3']/rule/greater_then").InnerText;
-            NH3_between_condition = doc.SelectSingleNode("rules/parameter[@name='NH3']/rule/between/@condition").InnerText;
-            NH3_between_min = doc.SelectSingleNode("rules/parameter[@name='NH3']/rule/between/min").InnerText;
-            NH3_between_max = doc.SelectSingleNode("rules/parameter[@name='NH3']/rule/between/max").InnerText;
+                NH3_less_then_condition = doc.SelectSingleNode("rules/parameter[@name='NH3']/rule/less_then/@condition").InnerText;
+                NH3_less_then = doc.SelectSingleNode("rules/parameter[@name='NH3']/rule/less_then").InnerText;
+                NH3_equal_condition = doc.SelectSingleNode("rules/parameter[@name ='NH3']/rule/equal/@condition").InnerText;
+                NH3_equal = doc.SelectSingleNode("rules/parameter[@name ='NH3']/rule/equal").InnerText;
+                NH3_greater_then_condition = doc.SelectSingleNode("rules/parameter[@name='NH3']/rule/greater_then/@condition").InnerText;
+                NH3_greater_then = doc.SelectSingleNode("rules/parameter[@name='NH3']/rule/greater_then").InnerText;
+                NH3_between_condition = doc.SelectSingleNode("rules/parameter[@name='NH3']/rule/between/@condition").InnerText;
+                NH3_between_min = doc.SelectSingleNode("rules/parameter[@name='NH3']/rule/between/min").InnerText;
+                NH3_between_max = doc.SelectSingleNode("rules/parameter[@name='NH3']/rule/between/max").InnerText;
 
 
-            CI2_less_then_condition = doc.SelectSingleNode("rules/parameter[@name='CI2']/rule/less_then/@condition").InnerText;
-            CI2_less_then = doc.SelectSingleNode("rules/parameter[@name='CI2']/rule/less_then").InnerText;
-            CI2_equal_condition = doc.SelectSingleNode("rules/parameter[@name ='CI2']/rule/equal/@condition").InnerText;
-            CI2_equal = doc.SelectSingleNode("rules/parameter[@name ='CI2']/rule/equal").InnerText;
-            CI2_greater_then_condition = doc.SelectSingleNode("rules/parameter[@name='CI2']/rule/greater_then/@condition").InnerText;
-            CI2_greater_then = doc.SelectSingleNode("rules/parameter[@name='CI2']/rule/greater_then").InnerText;
-            CI2_between_condition = doc.SelectSingleNode("rules/parameter[@name='CI2']/rule/between/@condition").InnerText;
-            CI2_between_min = doc.SelectSingleNode("rules/parameter[@name='CI2']/rule/between/min").InnerText;
-            CI2_between_max = doc.SelectSingleNode("rules/parameter[@name='CI2']/rule/between/max").InnerText;
+                CI2_less_then_condition = doc.SelectSingleNode("rules/parameter[@name='CI2']/rule/less_then/@condition").InnerText;
+                CI2_less_then = doc.SelectSingleNode("rules/parameter[@name='CI2']/rule/less_then").InnerText;
+                CI2_equal_condition = doc.SelectSingleNode("rules/parameter[@name ='CI2']/rule/equal/@condition").InnerText;
+                CI2_equal = doc.SelectSingleNode("rules/parameter[@name ='CI2']/rule/equal").InnerText;
+                CI2_greater_then_condition = doc.SelectSingleNode("rules/parameter[@name='CI2']/rule/greater_then/@condition").InnerText;
+                CI2_greater_then = doc.SelectSingleNode("rules/parameter[@name='CI2']/rule/greater_then").InnerText;
+                CI2_between_condition = doc.SelectSingleNode("rules/parameter[@name='CI2']/rule/between/@condition").InnerText;
+                CI2_between_min = doc.SelectSingleNode("rules/parameter[@name='CI2']/rule/between/min").InnerText;
+                CI2_between_max = doc.SelectSingleNode("rules/parameter[@name='CI2']/rule/between/max").InnerText;
 
+            }
 
 
         }
@@ -127,6 +133,30 @@ namespace SmartaH2O_Alarm
             {
                 compareCI2(param);
             }
+        }
+
+        public bool isXMLValid(XmlDocument xmlDocument)
+        {
+            isValid = true;
+            ValidationMessage = "Document Valid";
+            try
+            {
+                ValidationEventHandler eventHandler = new ValidationEventHandler(MyEvent);
+                xmlDocument.Schemas.Add(null, triggerRulesXSDPath);
+                xmlDocument.Validate(eventHandler);
+            }
+            catch (XmlException ex)
+            {
+                isValid = false;
+                ValidationMessage = String.Format("Invalid Document {0}", ex.Message);
+            }
+            return isValid;
+        }
+
+        private void MyEvent(object sender, ValidationEventArgs e)
+        {
+            isValid = false;
+            ValidationMessage = "Document is invalid" + e.Message;
         }
 
         public void comparePH(XmlNode node)
@@ -173,6 +203,10 @@ namespace SmartaH2O_Alarm
                 }
             }
         }
+
+
+
+
 
         public void compareNH3(XmlNode node)
         {
@@ -295,7 +329,6 @@ namespace SmartaH2O_Alarm
             XmlAttribute minute = docWaterParams.CreateAttribute("minute");
             XmlAttribute second = docWaterParams.CreateAttribute("second");
 
-
             alarm_condition.Value = alarmCondition;
             year.Value = year_value;
             month.Value = month_value;
@@ -303,7 +336,6 @@ namespace SmartaH2O_Alarm
             hour.Value = hour_value;
             minute.Value = minute_value;
             second.Value = second_value;
-
 
             node.Attributes.Append(alarm_condition);
             node.Attributes.Append(year);
@@ -314,6 +346,11 @@ namespace SmartaH2O_Alarm
             node.Attributes.Append(second);
 
 
+
+
+
+
+            MessageBox.Show("cheguei aqui aos alarmes");
             alarm = node.OuterXml;
 
         }

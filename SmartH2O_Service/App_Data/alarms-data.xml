@@ -45,4 +45,69 @@
     <value>7.0</value>
     <alarm_condition>beetween_min</alarm_condition>
   </parameter>
+  <parameter name="NH3" year="2016" month="12" day="11" hour="16" minute="35" second="16">
+    <id>2</id>
+    <value>1.29</value>
+    <alarm_condition>beetween_min</alarm_condition>
+  </parameter>
+  <parameter name="NH3" year="2016" month="12" day="11" hour="16" minute="36" second="24">
+    <id>2</id>
+    <value>1.2</value>
+    <alarm_condition>beetween_min</alarm_condition>
+  </parameter>
+  <parameter name="CI2" year="2016" month="12" day="11" hour="16" minute="36" second="29">
+    <id>3</id>
+    <value>10.3</value>
+    <alarm_condition>between_max</alarm_condition>
+  </parameter>
+  <parameter name="PH" year="2016" month="12" day="11" hour="16" minute="36" second="34">
+    <id>1</id>
+    <value>5.3</value>
+    <alarm_condition>equal</alarm_condition>
+  </parameter>
+  <parameter name="NH3" year="2016" month="12" day="11" hour="16" minute="36" second="39">
+    <id>2</id>
+    <value>1.16</value>
+    <alarm_condition>beetween_min</alarm_condition>
+  </parameter>
+  <parameter name="CI2" year="2016" month="12" day="11" hour="16" minute="36" second="44">
+    <id>3</id>
+    <value>7.7</value>
+    <alarm_condition>equal</alarm_condition>
+  </parameter>
+  <parameter name="PH" year="2016" month="12" day="11" hour="16" minute="36" second="49">
+    <id>1</id>
+    <value>6.4</value>
+    <alarm_condition>equal</alarm_condition>
+  </parameter>
+  <parameter name="NH3" year="2016" month="12" day="11" hour="16" minute="36" second="54">
+    <id>2</id>
+    <value>1.94</value>
+    <alarm_condition>beetween_min</alarm_condition>
+  </parameter>
+  <parameter name="CI2" year="2016" month="12" day="11" hour="16" minute="36" second="59">
+    <id>3</id>
+    <value>9.2</value>
+    <alarm_condition>between_max</alarm_condition>
+  </parameter>
+  <parameter name="PH" year="2016" month="12" day="11" hour="16" minute="37" second="4">
+    <id>1</id>
+    <value>5.1</value>
+    <alarm_condition>equal</alarm_condition>
+  </parameter>
+  <parameter name="NH3" year="2016" month="12" day="11" hour="16" minute="37" second="9">
+    <id>2</id>
+    <value>1.15</value>
+    <alarm_condition>beetween_min</alarm_condition>
+  </parameter>
+  <parameter name="CI2" year="2016" month="12" day="11" hour="16" minute="37" second="14">
+    <id>3</id>
+    <value>9.4</value>
+    <alarm_condition>between_max</alarm_condition>
+  </parameter>
+  <parameter name="PH" year="2016" month="12" day="11" hour="16" minute="37" second="19">
+    <id>1</id>
+    <value>6.3</value>
+    <alarm_condition>equal</alarm_condition>
+  </parameter>
 </alarms>
