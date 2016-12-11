@@ -14,11 +14,16 @@ namespace SmartH2O_Service
     {
 
         [OperationContract]
-        String GetHourlyInSpecificDay(String year, String month, String day, String parameter);
+        String GetHourlyInSpecificDayParameter(String year, String month, String day, String parameter);
 
         [OperationContract]
-        String GetDailyInThreshold(String firstYear, String firstMonth, String firstDay, String secondYear, String secondMonth, String secondDay, String parameter);
+        String GetDailyInThresholdParameter(String firstYear, String firstMonth, String firstDay, String secondYear, String secondMonth, String secondDay, String parameter);
 
+        [OperationContract]
+        String GetDailyAlarm(String year, String month, String day);
+
+        [OperationContract]
+        String GetThresholdAlarm(String firstYear, String firstMonth, String firstDay, String secondYear, String secondMonth, String secondDay);
 
 
         // TODO: Add your service operations here
