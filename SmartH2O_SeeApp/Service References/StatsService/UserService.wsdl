@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UserService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="GetHourlyInSpecificDayParameter">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="year" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="month" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="day" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="parameter" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetHourlyInSpecificDayParameterResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetHourlyInSpecificDayParameterResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDailyInThresholdParameter">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="firstYear" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="firstMonth" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="firstDay" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="secondYear" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="secondMonth" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="secondDay" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="parameter" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDailyInThresholdParameterResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetDailyInThresholdParameterResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDailyAlarm">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="year" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="month" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="day" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDailyAlarmResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetDailyAlarmResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetThresholdAlarm">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="firstYear" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="firstMonth" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="firstDay" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="secondYear" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="secondMonth" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="secondDay" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetThresholdAlarmResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetThresholdAlarmResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="SmartH20Service_GetHourlyInSpecificDayParameter_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHourlyInSpecificDayParameter" />
+  </wsdl:message>
+  <wsdl:message name="SmartH20Service_GetHourlyInSpecificDayParameter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHourlyInSpecificDayParameterResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartH20Service_GetDailyInThresholdParameter_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDailyInThresholdParameter" />
+  </wsdl:message>
+  <wsdl:message name="SmartH20Service_GetDailyInThresholdParameter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDailyInThresholdParameterResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartH20Service_GetDailyAlarm_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDailyAlarm" />
+  </wsdl:message>
+  <wsdl:message name="SmartH20Service_GetDailyAlarm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDailyAlarmResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartH20Service_GetThresholdAlarm_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetThresholdAlarm" />
+  </wsdl:message>
+  <wsdl:message name="SmartH20Service_GetThresholdAlarm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetThresholdAlarmResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SmartH20Service">
+    <wsdl:operation name="GetHourlyInSpecificDayParameter">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartH20Service/GetHourlyInSpecificDayParameter" message="tns:SmartH20Service_GetHourlyInSpecificDayParameter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartH20Service/GetHourlyInSpecificDayParameterResponse" message="tns:SmartH20Service_GetHourlyInSpecificDayParameter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyInThresholdParameter">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartH20Service/GetDailyInThresholdParameter" message="tns:SmartH20Service_GetDailyInThresholdParameter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartH20Service/GetDailyInThresholdParameterResponse" message="tns:SmartH20Service_GetDailyInThresholdParameter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyAlarm">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartH20Service/GetDailyAlarm" message="tns:SmartH20Service_GetDailyAlarm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartH20Service/GetDailyAlarmResponse" message="tns:SmartH20Service_GetDailyAlarm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetThresholdAlarm">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartH20Service/GetThresholdAlarm" message="tns:SmartH20Service_GetThresholdAlarm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartH20Service/GetThresholdAlarmResponse" message="tns:SmartH20Service_GetThresholdAlarm_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_SmartH20Service" type="tns:SmartH20Service">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetHourlyInSpecificDayParameter">
+      <soap:operation soapAction="http://tempuri.org/SmartH20Service/GetHourlyInSpecificDayParameter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyInThresholdParameter">
+      <soap:operation soapAction="http://tempuri.org/SmartH20Service/GetDailyInThresholdParameter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyAlarm">
+      <soap:operation soapAction="http://tempuri.org/SmartH20Service/GetDailyAlarm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetThresholdAlarm">
+      <soap:operation soapAction="http://tempuri.org/SmartH20Service/GetThresholdAlarm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserService">
+    <wsdl:port name="BasicHttpBinding_SmartH20Service" binding="tns:BasicHttpBinding_SmartH20Service">
+      <soap:address location="http://localhost:57175/UserService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

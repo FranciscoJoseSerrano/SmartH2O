@@ -35,7 +35,6 @@ namespace SmartH2O_DU
 
         private static void readDataFromDll(string message)
         {
-            Console.WriteLine(message);
             String xml = handler.createParameter(message);
             publishParameters(xml);
 

@@ -15,6 +15,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartH2O_Service", "SmartH2O_Service\SmartH2O_Service.csproj", "{82D454BC-AAAD-46B9-8D25-A9B2F3D19F73}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartH2O_SeeApp", "SmartH2O_SeeApp\SmartH2O_SeeApp.csproj", "{677213CB-1095-4FEF-9AB5-35FF870F9C63}"
+	ProjectSection(ProjectDependencies) = postProject
+		{82D454BC-AAAD-46B9-8D25-A9B2F3D19F73} = {82D454BC-AAAD-46B9-8D25-A9B2F3D19F73}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

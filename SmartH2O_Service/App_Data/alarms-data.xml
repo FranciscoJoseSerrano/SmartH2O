@@ -45,4 +45,44 @@
     <value>7.0</value>
     <alarm_condition>beetween_min</alarm_condition>
   </parameter>
+  <parameter name="CI2" year="2016" month="12" day="11" hour="11" minute="46" second="8">
+    <id>3</id>
+    <value>8.0</value>
+    <alarm_condition>beetween_min</alarm_condition>
+  </parameter>
+  <parameter name="CI2" year="2016" month="12" day="11" hour="11" minute="46" second="23">
+    <id>3</id>
+    <value>8.4</value>
+    <alarm_condition>beetween_min</alarm_condition>
+  </parameter>
+  <parameter name="CI2" year="2016" month="12" day="11" hour="11" minute="46" second="53">
+    <id>3</id>
+    <value>10.5</value>
+    <alarm_condition>between_max</alarm_condition>
+  </parameter>
+  <parameter name="CI2" year="2016" month="12" day="11" hour="11" minute="47" second="8">
+    <id>3</id>
+    <value>7.4</value>
+    <alarm_condition>beetween_min</alarm_condition>
+  </parameter>
+  <parameter name="CI2" year="2016" month="12" day="11" hour="11" minute="47" second="53">
+    <id>3</id>
+    <value>7.8</value>
+    <alarm_condition>beetween_min</alarm_condition>
+  </parameter>
+  <parameter name="CI2" year="2016" month="12" day="11" hour="11" minute="48" second="23">
+    <id>3</id>
+    <value>7.8</value>
+    <alarm_condition>beetween_min</alarm_condition>
+  </parameter>
+  <parameter name="CI2" year="2016" month="12" day="11" hour="11" minute="48" second="38">
+    <id>3</id>
+    <value>11.8</value>
+    <alarm_condition>between_max</alarm_condition>
+  </parameter>
+  <parameter name="CI2" year="2016" month="12" day="11" hour="11" minute="49" second="8">
+    <id>3</id>
+    <value>10.7</value>
+    <alarm_condition>between_max</alarm_condition>
+  </parameter>
 </alarms>

@@ -9,8 +9,8 @@ namespace SmartH2O_Service
     {
         private XmlDocument doc = new XmlDocument();
 
-        private String path = @"C:\Users\joaos\Desktop\real_is\SmartH2O\SmartH2O_Service\App_Data\param-data.xml";
-        private String pathAlarm = @"C:\Users\joaos\Desktop\real_is\SmartH2O\SmartH2O_Service\App_Data\alarms-data.xml";
+        private String path = AppDomain.CurrentDomain.BaseDirectory + "App_Data" + "/" + Properties.Settings.Default.XmlDataPath;
+        private String pathAlarm = AppDomain.CurrentDomain.BaseDirectory + "App_Data" + "/" + Properties.Settings.Default.XmlAlarmsPath;
 
         public string GetDailyAlarm(string year, string month, string day)
         {
@@ -29,15 +29,15 @@ namespace SmartH2O_Service
 
             docSave.AppendChild(root);
 
-    
+
 
             foreach (XmlNode item in value)
             {
 
-                XmlElement hour = docSave.CreateElement("date");
-                hour.SetAttribute("hour", item.Attributes["hour"].InnerText);
-                hour.SetAttribute("minute", item.Attributes["minute"].InnerText);
-                hour.SetAttribute("second", item.Attributes["second"].InnerText);
+                XmlElement date = docSave.CreateElement("date");
+                date.SetAttribute("hour", item.Attributes["hour"].InnerText);
+                date.SetAttribute("minute", item.Attributes["minute"].InnerText);
+                date.SetAttribute("second", item.Attributes["second"].InnerText);
 
                 XmlElement id = docSave.CreateElement("id");
                 id.InnerText = item["id"].InnerText;
@@ -48,12 +48,12 @@ namespace SmartH2O_Service
                 XmlElement alarmCondition = docSave.CreateElement("alarm_condition");
                 alarmCondition.InnerText = item["alarm_condition"].InnerText;
 
-                root.AppendChild(hour);
-                hour.AppendChild(id);
-                id.AppendChild(valor);
-                valor.AppendChild(alarmCondition);
+                root.AppendChild(date);
+                date.AppendChild(id);
+                date.AppendChild(valor);
+                date.AppendChild(alarmCondition);
 
-              
+
             }
 
             return docSave.OuterXml;
@@ -81,7 +81,7 @@ namespace SmartH2O_Service
 
             for (DateTime date = firstDate; date <= secondDate; date = date.AddDays(1.0))
             {
-                XmlNodeList value = doc.SelectNodes("/alarms/parameter[@day="+ date.Day + "][@month=" + date.Month +"][@year="+ date.Year+"]");
+                XmlNodeList value = doc.SelectNodes("/alarms/parameter[@day=" + date.Day + "][@month=" + date.Month + "][@year=" + date.Year + "]");
 
                 XmlElement dates = docSave.CreateElement("date");
                 dates.SetAttribute("day", Convert.ToString(date.Day));
@@ -97,8 +97,8 @@ namespace SmartH2O_Service
                     time.SetAttribute("minute", item.Attributes["minute"].InnerText);
                     time.SetAttribute("second", item.Attributes["second"].InnerText);
 
-                    XmlElement id = docSave.CreateElement("id");
-                    id.InnerText = item["id"].InnerText;
+                    XmlElement id = docSave.CreateElement("parameter");
+                    id.InnerText = item.Attributes["name"].InnerText;
 
                     XmlElement valor = docSave.CreateElement("value");
                     valor.InnerText = item["value"].InnerText;
@@ -108,15 +108,15 @@ namespace SmartH2O_Service
 
                     dates.AppendChild(time);
                     time.AppendChild(id);
-                    id.AppendChild(valor);
-                    valor.AppendChild(alarmCondition);
-                }              
-                
+                    time.AppendChild(valor);
+                    time.AppendChild(alarmCondition);
+                }
+
             }
 
             return docSave.OuterXml;
         }
-        
+
 
 
         public String GetDailyInThresholdParameter(string firstYear, string firstMonth, string firstDay, string secondYear, string secondMonth, string secondDay, string parameter)
@@ -136,7 +136,7 @@ namespace SmartH2O_Service
                 int number = 0;
                 double average = 0.0;
                 XmlNodeList value = doc.SelectNodes("/data/" + parameter + "/H2O[@day=" + date.Day + "][@month=" + date.Month + "][@year=" + date.Year + "]/value");
-                
+
                 if (value.Count != 0)
                 {
 
@@ -186,7 +186,7 @@ namespace SmartH2O_Service
                 int number = 0;
                 double average = 0.0;
                 XmlNodeList value = doc.SelectNodes("/data/" + parameter + "/H2O[@day=" + day + "][@month=" + month + "][@year=" + year + "][@hour=" + i + "]/value");
-
+ 
                 if (value.Count != 0)
                 {
 
@@ -219,7 +219,7 @@ namespace SmartH2O_Service
             return s;
         }
 
-        
+
 
         private string ReceiveFromDailyXML(List<DatePerHour> daily, string parameter, DateTime firstDate, DateTime lastDate)
         {
@@ -238,7 +238,7 @@ namespace SmartH2O_Service
 
             foreach (DatePerHour datePerHour in daily)
             {
-                XmlElement element = createElementDaily(datePerHour, firstDate, lastDate, docSave);
+                XmlElement element = createElementDaily(datePerHour, docSave);
                 nameParameter.AppendChild(element);
             }
 
@@ -272,25 +272,14 @@ namespace SmartH2O_Service
 
         }
 
-       
 
 
-        private XmlElement createElementDaily(DatePerHour date, DateTime firstDate, DateTime lastDate, XmlDocument docSave)
+
+        private XmlElement createElementDaily(DatePerHour date, XmlDocument docSave)
         {
 
-            XmlElement first = docSave.CreateElement("since");
-            first.SetAttribute("day", Convert.ToString(firstDate.Day));
-            first.SetAttribute("month", Convert.ToString(firstDate.Month));
-            first.SetAttribute("year", Convert.ToString(firstDate.Year));
-
-            XmlElement second = docSave.CreateElement("until");
-            second.SetAttribute("day", Convert.ToString(lastDate.Day));
-            second.SetAttribute("month", Convert.ToString(lastDate.Month));
-            second.SetAttribute("year", Convert.ToString(lastDate.Year));
-
-
-            XmlElement hour = docSave.CreateElement("day");
-            hour.InnerText = date.option;
+            XmlElement day = docSave.CreateElement("date");
+            day.SetAttribute("day", date.option);
 
             XmlElement average = docSave.CreateElement("average");
             average.InnerText = date.average;
@@ -301,13 +290,11 @@ namespace SmartH2O_Service
             XmlElement min = docSave.CreateElement("min");
             min.InnerText = date.min;
 
-            first.AppendChild(second);
-            second.AppendChild(hour);
-            hour.AppendChild(average);
-            average.AppendChild(max);
-            max.AppendChild(min);
+            day.AppendChild(average);
+            day.AppendChild(max);
+            day.AppendChild(min);
 
-            return first;
+            return day;
         }
 
 
@@ -332,13 +319,13 @@ namespace SmartH2O_Service
             min.InnerText = date.min;
 
             h2o.AppendChild(hour);
-            hour.AppendChild(average);
-            average.AppendChild(max);
-            max.AppendChild(min);
+            h2o.AppendChild(average);
+            h2o.AppendChild(max);
+            h2o.AppendChild(min);
 
             return h2o;
         }
 
-    
+
     }
 }
