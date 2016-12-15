@@ -38,7 +38,6 @@ namespace SmartH2O_Service
             XmlElement alarm = createAlarmElement(alarmNode, doc2);
             doc2.LastChild.AppendChild(alarm);
 
-
             doc2.Save(FilePath);
         }
 
