@@ -15,7 +15,7 @@ namespace SmartaH2O_Alarm
 {
     public partial class Form1 : Form
     {
-        private MqttClient m_cClient = new MqttClient(IPAddress.Parse("192.168.1.71"));
+        private MqttClient m_cClient = new MqttClient("127.0.0.1");
         private string[] m_strTopicsInfo = { "parameters" };
         private byte[] qosLevels = { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE };
         private HandlerXML handlerXML = new HandlerXML();

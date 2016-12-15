@@ -19,19 +19,21 @@ namespace SmartH2O_SeeApp
 
         private void fillAlarmTables()
         {
-            tableAlarms.Controls.Add(new Label() { Text = "Day" }, tableAlarms.ColumnCount - 7, 0);
+            tableAlarms.Controls.Add(new Label() { Text = "Day" }, tableAlarms.ColumnCount - 8, 0);
+            tableAlarms.GetControlFromPosition(tableAlarms.ColumnCount - 8, 0).BackColor = Color.Gray;
+            tableAlarms.Controls.Add(new Label() { Text = "Hour" }, tableAlarms.ColumnCount - 7, 0);
             tableAlarms.GetControlFromPosition(tableAlarms.ColumnCount - 7, 0).BackColor = Color.Gray;
-            tableAlarms.Controls.Add(new Label() { Text = "Hour" }, tableAlarms.ColumnCount - 6, 0);
+            tableAlarms.Controls.Add(new Label() { Text = "Minute" }, tableAlarms.ColumnCount - 6, 0);
             tableAlarms.GetControlFromPosition(tableAlarms.ColumnCount - 6, 0).BackColor = Color.Gray;
-            tableAlarms.Controls.Add(new Label() { Text = "Minute" }, tableAlarms.ColumnCount - 5, 0);
+            tableAlarms.Controls.Add(new Label() { Text = "Second" }, tableAlarms.ColumnCount - 5, 0);
             tableAlarms.GetControlFromPosition(tableAlarms.ColumnCount - 5, 0).BackColor = Color.Gray;
-            tableAlarms.Controls.Add(new Label() { Text = "Second" }, tableAlarms.ColumnCount - 4, 0);
+            tableAlarms.Controls.Add(new Label() { Text = "Parameter" }, tableAlarms.ColumnCount - 4, 0);
             tableAlarms.GetControlFromPosition(tableAlarms.ColumnCount - 4, 0).BackColor = Color.Gray;
-            tableAlarms.Controls.Add(new Label() { Text = "Parameter" }, tableAlarms.ColumnCount - 3, 0);
+            tableAlarms.Controls.Add(new Label() { Text = "Condition" }, tableAlarms.ColumnCount - 3, 0);
             tableAlarms.GetControlFromPosition(tableAlarms.ColumnCount - 3, 0).BackColor = Color.Gray;
-            tableAlarms.Controls.Add(new Label() { Text = "Condition" }, tableAlarms.ColumnCount - 2, 0);
+            tableAlarms.Controls.Add(new Label() { Text = "Value" }, tableAlarms.ColumnCount - 2, 0);
             tableAlarms.GetControlFromPosition(tableAlarms.ColumnCount - 2, 0).BackColor = Color.Gray;
-            tableAlarms.Controls.Add(new Label() { Text = "Value" }, tableAlarms.ColumnCount - 1, 0);
+            tableAlarms.Controls.Add(new Label() { Text = "Message" }, tableAlarms.ColumnCount - 1, 0);
             tableAlarms.GetControlFromPosition(tableAlarms.ColumnCount - 1, 0).BackColor = Color.Gray;
         }
 
@@ -46,7 +48,7 @@ namespace SmartH2O_SeeApp
             tableAlarms.Hide();
             clearTable();
 
-            //<?xml version="1.0"?><alarms><date day="11" month="12" year="2016"><time hour="11" minute="46" second="8"><parameter>PH</parameter><value>8.0</value><alarm_condition>beetween_min</alarm_condition></time></date></alarms>
+            //<?xml version="1.0"?><alarms><date day="11" month="12" year="2016"><time hour="11" minute="46" second="8"><parameter>PH</parameter><value>8.0</value><alarm_message>DDWDWDDD</alarm_message><alarm_condition>beetween_min</alarm_condition></time></date></alarms>
 
             DateTimePicker dt1 = dateTimePicker1;
             DateTimePicker dt2 = dateTimePicker2;
@@ -70,13 +72,14 @@ namespace SmartH2O_SeeApp
                         tableAlarms.RowCount = tableAlarms.RowCount + 1;
                         tableAlarms.RowStyles.Add(new RowStyle(SizeType.AutoSize));
 
-                        tableAlarms.Controls.Add(new Label() { Text = day }, tableAlarms.ColumnCount - 7, tableAlarms.RowCount);
-                        tableAlarms.Controls.Add(new Label() { Text = node.Attributes["hour"].InnerText + "h" }, tableAlarms.ColumnCount - 6, tableAlarms.RowCount);
-                        tableAlarms.Controls.Add(new Label() { Text = node.Attributes["minute"].InnerText + "m" }, tableAlarms.ColumnCount - 5, tableAlarms.RowCount);
-                        tableAlarms.Controls.Add(new Label() { Text = node.Attributes["second"].InnerText + "s" }, tableAlarms.ColumnCount - 4, tableAlarms.RowCount);
-                        tableAlarms.Controls.Add(new Label() { Text = node["parameter"].InnerText }, tableAlarms.ColumnCount - 3, tableAlarms.RowCount);
-                        tableAlarms.Controls.Add(new Label() { Text = node["alarm_condition"].InnerText }, tableAlarms.ColumnCount - 2, tableAlarms.RowCount);
-                        tableAlarms.Controls.Add(new Label() { Text = node["value"].InnerText }, tableAlarms.ColumnCount - 1, tableAlarms.RowCount);
+                        tableAlarms.Controls.Add(new Label() { Text = day }, tableAlarms.ColumnCount - 8, tableAlarms.RowCount);
+                        tableAlarms.Controls.Add(new Label() { Text = node.Attributes["hour"].InnerText + "h" }, tableAlarms.ColumnCount - 7, tableAlarms.RowCount);
+                        tableAlarms.Controls.Add(new Label() { Text = node.Attributes["minute"].InnerText + "m" }, tableAlarms.ColumnCount - 6, tableAlarms.RowCount);
+                        tableAlarms.Controls.Add(new Label() { Text = node.Attributes["second"].InnerText + "s" }, tableAlarms.ColumnCount - 5, tableAlarms.RowCount);
+                        tableAlarms.Controls.Add(new Label() { Text = node["parameter"].InnerText }, tableAlarms.ColumnCount - 4, tableAlarms.RowCount);
+                        tableAlarms.Controls.Add(new Label() { Text = node["alarm_condition"].InnerText }, tableAlarms.ColumnCount - 3, tableAlarms.RowCount);
+                        tableAlarms.Controls.Add(new Label() { Text = node["value"].InnerText }, tableAlarms.ColumnCount - 2, tableAlarms.RowCount);
+                        tableAlarms.Controls.Add(new Label() { Text = node["alarm_message"].InnerText }, tableAlarms.ColumnCount - 1, tableAlarms.RowCount);
                     }
                 }
             }

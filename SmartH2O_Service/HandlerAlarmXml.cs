@@ -18,7 +18,7 @@ namespace SmartH2O_Service
         public void putInAlarmXml(string message)
         {
             XmlDocument doc2;
-            //"<parameter name="NH3" alarm_condition="beetween_min" year="2016" month="12" day="8" hour="15" minute="57" second="25"><id>2</id><value>1.75</value></parameter>"
+            //"<parameter name="NH3" alarm_condition="beetween_min" year="2016" month="12" day="8" hour="15" minute="57" second="25"><id>2</id><value>1.75</value><alarm_message>messagem</alarm_message></parameter>"
 
             XmlDocument doc = new XmlDocument();
             doc.LoadXml(message);
@@ -69,6 +69,9 @@ namespace SmartH2O_Service
             XmlElement condition = doc.CreateElement("alarm_condition");
             condition.InnerText = a.Attributes["alarm_condition"].InnerText;
 
+            XmlElement errorMessage = doc.CreateElement("alarm_message");
+            errorMessage.InnerText = a["alarm_message"].InnerText;
+
             XmlElement parameterid = doc.CreateElement("id");
             parameterid.InnerText = a["id"].InnerText;
 
@@ -78,6 +81,8 @@ namespace SmartH2O_Service
             parameter.AppendChild(parameterid);
             parameter.AppendChild(parameterValue);
             parameter.AppendChild(condition);
+            parameter.AppendChild(errorMessage);
+
             return parameter;
         }
     }

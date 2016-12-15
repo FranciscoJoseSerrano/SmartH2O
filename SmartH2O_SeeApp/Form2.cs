@@ -76,16 +76,16 @@ namespace SmartH2O_SeeApp
         private void getInicialValuesWeeklyCharts()
         {
             //<?xml version="1.0"?><data><PH><date day="10/12/2016 00:00:00"><average>5,9</average><max>6,8</max><min>5,1</min></day>
-       
+
             var firstDayOfTheWeek = dateTimePickerWeekly.Value;
             DateTime lastDayOfTheWeek = dateTimePickerWeekly.Value.Date.AddDays(7);
-            foreach(var p in parameters.Keys)
+            foreach (var p in parameters.Keys)
             {
-                var task = Task.Run(() => client.GetDailyInThresholdParameterAsync(firstDayOfTheWeek.Year.ToString(),firstDayOfTheWeek.Month.ToString(), firstDayOfTheWeek.Day.ToString(), 
+                var task = Task.Run(() => client.GetDailyInThresholdParameterAsync(firstDayOfTheWeek.Year.ToString(), firstDayOfTheWeek.Month.ToString(), firstDayOfTheWeek.Day.ToString(),
                       lastDayOfTheWeek.Year.ToString(), lastDayOfTheWeek.Month.ToString(), lastDayOfTheWeek.Day.ToString(), p.ToUpper()));
                 task.Wait();
                 fillWeeklyCharts(task.Result, p.ToUpper());
-                
+
             }
         }
 
@@ -102,13 +102,15 @@ namespace SmartH2O_SeeApp
             {
                 case "PH":
                     p = 0;
+                    foreach (var series in chartDailyPH.Series)
+                    {
+                        series.Points.Clear();
+                    }
+
                     if (list.Count == 0)
                     {
                         labelDailyPH.Visible = true;
-                        foreach (var series in chartDailyPH.Series)
-                        {
-                            series.Points.Clear();
-                        }
+                       
                     }
                     else
                     {
@@ -117,13 +119,15 @@ namespace SmartH2O_SeeApp
                     break;
                 case "NH3":
                     p = 1;
+                    foreach (var series in chartDailyNH3.Series)
+                    {
+                        series.Points.Clear();
+                    }
+
                     if (list.Count == 0)
                     {
                         labelDailyNH3.Visible = true;
-                        foreach (var series in chartDailyNH3.Series)
-                        {
-                            series.Points.Clear();
-                        }
+                       
                     }
                     else
                     {
@@ -132,13 +136,15 @@ namespace SmartH2O_SeeApp
                     break;
                 case "CI2":
                     p = 2;
+                    foreach (var series in chartDailyCI2.Series)
+                    {
+                        series.Points.Clear();
+                    }
+
                     if (list.Count == 0)
                     {
                         labelDailyCI2.Visible = true;
-                        foreach (var series in chartDailyCI2.Series)
-                        {
-                            series.Points.Clear();
-                        }
+                       
                     }
                     else
                     {
@@ -165,7 +171,7 @@ namespace SmartH2O_SeeApp
 
         }
 
-        private void fillWeeklyCharts(string xml,string parameter)
+        private void fillWeeklyCharts(string xml, string parameter)
         {
             int p = 0;
 
@@ -178,13 +184,15 @@ namespace SmartH2O_SeeApp
             {
                 case "PH":
                     p = 0;
+
+                    foreach (var series in chartWeeklyPH.Series)
+                    {
+                        series.Points.Clear();
+                    }
                     if (list.Count == 0)
                     {
                         labelWeeklyPh.Visible = true;
-                        foreach (var series in chartWeeklyPH.Series)
-                        {
-                            series.Points.Clear();
-                        }
+                       
                     }
                     else
                     {
@@ -193,13 +201,16 @@ namespace SmartH2O_SeeApp
                     break;
                 case "NH3":
                     p = 1;
+
+                    foreach (var series in chartWeeklyNH3.Series)
+                    {
+                        series.Points.Clear();
+                    }
+
                     if (list.Count == 0)
                     {
                         labelWeeklyNH3.Visible = true;
-                        foreach (var series in chartWeeklyNH3.Series)
-                        {
-                            series.Points.Clear();
-                        }
+                        
                     }
                     else
                     {
@@ -208,13 +219,15 @@ namespace SmartH2O_SeeApp
                     break;
                 case "CI2":
                     p = 2;
+                    foreach (var series in chartWeeklyCI2.Series)
+                    {
+                        series.Points.Clear();
+                    }
+
                     if (list.Count == 0)
                     {
                         labelWeeklyCI2.Visible = true;
-                        foreach (var series in chartWeeklyCI2.Series)
-                        {
-                            series.Points.Clear();
-                        }
+                      
                     }
                     else
                     {
@@ -228,9 +241,9 @@ namespace SmartH2O_SeeApp
                 return;
             }
 
-               foreach (XmlNode n in list)
+            foreach (XmlNode n in list)
             {
-                weeklyCharts[p].Series[0].Points.AddXY(int.Parse(n.Attributes["day"].InnerText.Substring(0,2)), double.Parse(n["min"].InnerText));
+                weeklyCharts[p].Series[0].Points.AddXY(int.Parse(n.Attributes["day"].InnerText.Substring(0, 2)), double.Parse(n["min"].InnerText));
                 weeklyCharts[p].Series[1].Points.AddXY(int.Parse(n.Attributes["day"].InnerText.Substring(0, 2)), double.Parse(n["max"].InnerText));
                 weeklyCharts[p].Series[2].Points.AddXY(int.Parse(n.Attributes["day"].InnerText.Substring(0, 2)), double.Parse(n["average"].InnerText));
 

@@ -85,4 +85,34 @@
     <value>10.7</value>
     <alarm_condition>between_max</alarm_condition>
   </parameter>
+  <parameter name="CI2" year="2016" month="12" day="15" hour="15" minute="34" second="3">
+    <id>3</id>
+    <value>10.5</value>
+    <alarm_condition>between_max</alarm_condition>
+  </parameter>
+  <parameter name="CI2" year="2016" month="12" day="15" hour="15" minute="34" second="33">
+    <id>3</id>
+    <value>11.3</value>
+    <alarm_condition>between_max</alarm_condition>
+  </parameter>
+  <parameter name="CI2" year="2016" month="12" day="15" hour="15" minute="34" second="48">
+    <id>3</id>
+    <value>11.8</value>
+    <alarm_condition>between_max</alarm_condition>
+  </parameter>
+  <parameter name="CI2" year="2016" month="12" day="15" hour="15" minute="35" second="3">
+    <id>3</id>
+    <value>10.4</value>
+    <alarm_condition>between_max</alarm_condition>
+  </parameter>
+  <parameter name="CI2" year="2016" month="12" day="15" hour="15" minute="35" second="18">
+    <id>3</id>
+    <value>7.3</value>
+    <alarm_condition>beetween_min</alarm_condition>
+  </parameter>
+  <parameter name="CI2" year="2016" month="12" day="15" hour="15" minute="35" second="33">
+    <id>3</id>
+    <value>11.6</value>
+    <alarm_condition>between_max</alarm_condition>
+  </parameter>
 </alarms>

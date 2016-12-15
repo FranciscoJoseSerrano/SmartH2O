@@ -43,7 +43,6 @@ namespace SmartH2O_DU
         private static void publishParameters(String parameter)
         {
             m_cClient.Publish("parameters", Encoding.UTF8.GetBytes(parameter));
-
         }
 
 

@@ -61,7 +61,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Corbel", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(450, 51);
+            this.label3.Location = new System.Drawing.Point(809, 51);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 15);
             this.label3.TabIndex = 2;
@@ -76,7 +76,7 @@
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(499, 51);
+            this.dateTimePicker2.Location = new System.Drawing.Point(858, 51);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(161, 20);
             this.dateTimePicker2.TabIndex = 4;
@@ -86,24 +86,25 @@
             this.tableAlarms.AutoScroll = true;
             this.tableAlarms.BackColor = System.Drawing.SystemColors.Info;
             this.tableAlarms.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableAlarms.ColumnCount = 7;
-            this.tableAlarms.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableAlarms.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.tableAlarms.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.tableAlarms.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.tableAlarms.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.tableAlarms.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.tableAlarms.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.tableAlarms.ColumnCount = 8;
+            this.tableAlarms.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableAlarms.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableAlarms.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableAlarms.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableAlarms.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableAlarms.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableAlarms.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableAlarms.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableAlarms.Location = new System.Drawing.Point(19, 121);
             this.tableAlarms.Name = "tableAlarms";
             this.tableAlarms.RowCount = 1;
             this.tableAlarms.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableAlarms.Size = new System.Drawing.Size(641, 377);
+            this.tableAlarms.Size = new System.Drawing.Size(1000, 383);
             this.tableAlarms.TabIndex = 5;
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(288, 77);
+            this.buttonSearch.Location = new System.Drawing.Point(451, 77);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(75, 23);
             this.buttonSearch.TabIndex = 6;
@@ -115,7 +116,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(681, 510);
+            this.ClientSize = new System.Drawing.Size(1031, 529);
             this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.tableAlarms);
             this.Controls.Add(this.dateTimePicker2);

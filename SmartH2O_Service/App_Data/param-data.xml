@@ -100,6 +100,36 @@
     <H2O day="11" month="12" year="2016" hour="22" minute="1" second="26">
       <value>1.77</value>
     </H2O>
+    <H2O day="15" month="12" year="2016" hour="15" minute="30" second="52">
+      <value>1.46</value>
+    </H2O>
+    <H2O day="15" month="12" year="2016" hour="15" minute="31" second="7">
+      <value>1.80</value>
+    </H2O>
+    <H2O day="15" month="12" year="2016" hour="15" minute="33" second="58">
+      <value>1.30</value>
+    </H2O>
+    <H2O day="15" month="12" year="2016" hour="15" minute="34" second="13">
+      <value>1.69</value>
+    </H2O>
+    <H2O day="15" month="12" year="2016" hour="15" minute="34" second="28">
+      <value>1.95</value>
+    </H2O>
+    <H2O day="15" month="12" year="2016" hour="15" minute="34" second="43">
+      <value>1.34</value>
+    </H2O>
+    <H2O day="15" month="12" year="2016" hour="15" minute="34" second="58">
+      <value>1.16</value>
+    </H2O>
+    <H2O day="15" month="12" year="2016" hour="15" minute="35" second="13">
+      <value>1.89</value>
+    </H2O>
+    <H2O day="15" month="12" year="2016" hour="15" minute="35" second="28">
+      <value>1.49</value>
+    </H2O>
+    <H2O day="15" month="12" year="2016" hour="15" minute="59" second="14">
+      <value>1.91</value>
+    </H2O>
   </NH3>
   <CI2 id="3">
     <H2O day="10" month="12" year="2016" hour="21" minute="27" second="7">
@@ -194,6 +224,33 @@
     </H2O>
     <H2O day="11" month="12" year="2016" hour="11" minute="49" second="8">
       <value>10.7</value>
+    </H2O>
+    <H2O day="15" month="12" year="2016" hour="15" minute="30" second="57">
+      <value>10.8</value>
+    </H2O>
+    <H2O day="15" month="12" year="2016" hour="15" minute="34" second="3">
+      <value>10.5</value>
+    </H2O>
+    <H2O day="15" month="12" year="2016" hour="15" minute="34" second="18">
+      <value>9.8</value>
+    </H2O>
+    <H2O day="15" month="12" year="2016" hour="15" minute="34" second="33">
+      <value>11.3</value>
+    </H2O>
+    <H2O day="15" month="12" year="2016" hour="15" minute="34" second="48">
+      <value>11.8</value>
+    </H2O>
+    <H2O day="15" month="12" year="2016" hour="15" minute="35" second="3">
+      <value>10.4</value>
+    </H2O>
+    <H2O day="15" month="12" year="2016" hour="15" minute="35" second="18">
+      <value>7.3</value>
+    </H2O>
+    <H2O day="15" month="12" year="2016" hour="15" minute="35" second="33">
+      <value>11.6</value>
+    </H2O>
+    <H2O day="15" month="12" year="2016" hour="15" minute="59" second="19">
+      <value>11.5</value>
     </H2O>
   </CI2>
   <PH id="1">
@@ -301,6 +358,36 @@
     </H2O>
     <H2O day="11" month="12" year="2016" hour="22" minute="1" second="21">
       <value>5.6</value>
+    </H2O>
+    <H2O day="15" month="12" year="2016" hour="15" minute="30" second="47">
+      <value>6.7</value>
+    </H2O>
+    <H2O day="15" month="12" year="2016" hour="15" minute="31" second="2">
+      <value>5.4</value>
+    </H2O>
+    <H2O day="15" month="12" year="2016" hour="15" minute="33" second="53">
+      <value>5.4</value>
+    </H2O>
+    <H2O day="15" month="12" year="2016" hour="15" minute="34" second="8">
+      <value>6.8</value>
+    </H2O>
+    <H2O day="15" month="12" year="2016" hour="15" minute="34" second="23">
+      <value>5.7</value>
+    </H2O>
+    <H2O day="15" month="12" year="2016" hour="15" minute="34" second="38">
+      <value>6.0</value>
+    </H2O>
+    <H2O day="15" month="12" year="2016" hour="15" minute="34" second="53">
+      <value>5.1</value>
+    </H2O>
+    <H2O day="15" month="12" year="2016" hour="15" minute="35" second="8">
+      <value>5.6</value>
+    </H2O>
+    <H2O day="15" month="12" year="2016" hour="15" minute="35" second="23">
+      <value>5.7</value>
+    </H2O>
+    <H2O day="15" month="12" year="2016" hour="15" minute="59" second="9">
+      <value>6.4</value>
     </H2O>
   </PH>
 </data>
