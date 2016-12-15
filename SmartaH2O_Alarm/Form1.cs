@@ -35,14 +35,10 @@ namespace SmartaH2O_Alarm
 
         private void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
         {
-            handlerXML.alarm = "";
             handlerXML.readXmlFile(Encoding.UTF8.GetString(e.Message));
-            if (handlerXML.alarm != "")
-            {
-                publishAlarms(handlerXML.alarm);
-            }
-            
-
+            publishAlarms(handlerXML.alarm);
+          
+           
         }
         
         private void subscribeParameter()
@@ -68,9 +64,9 @@ namespace SmartaH2O_Alarm
             }
         }
 
-        private void publishAlarms(String alarms)
+        private void publishAlarms(String alarm)
         {
-            m_cClient.Publish("alarms", Encoding.UTF8.GetBytes(alarms));
+            m_cClient.Publish("alarms", Encoding.UTF8.GetBytes(alarm));
 
         }
 
