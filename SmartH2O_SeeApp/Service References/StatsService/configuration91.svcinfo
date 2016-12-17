@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="c+w/y3IEDq8Wd/ndMOywHv9FCWU=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="RbL1OgvNPhOe4RD2EZ5wc8Npgxg=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_SmartH20Service">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_SmartH20Service" contract="StatsService.SmartH20Service" bindingType="basicHttpBinding" address="http://localhost:57175/UserService.svc" bindingConfiguration="BasicHttpBinding_SmartH20Service">
+    <endpoint name="BasicHttpBinding_SmartH20Service" contract="StatsService.SmartH20Service" bindingType="basicHttpBinding" address="http://smarth2o.apphb.com/UserService.svc" bindingConfiguration="BasicHttpBinding_SmartH20Service">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:57175/UserService.svc</serializedValue>
+          <serializedValue>http://smarth2o.apphb.com/UserService.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

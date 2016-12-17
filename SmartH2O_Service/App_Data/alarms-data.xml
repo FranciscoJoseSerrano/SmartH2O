@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<alarms>
+  <parameter name="CI2" year="2016" month="12" day="17" hour="11" minute="41" second="24">
+    <id>3</id>
+    <value>9.0</value>
+    <alarm_condition>greater_then</alarm_condition>
+    <alarm_message>value of CI2 (9.0) is not greater then 10.</alarm_message>
+  </parameter>
+  <parameter name="CI2" year="2016" month="12" day="17" hour="11" minute="41" second="42">
+    <id>3</id>
+    <value>7.4</value>
+    <alarm_condition>greater_then</alarm_condition>
+    <alarm_message>value of CI2 (7.4) is not greater then 10.</alarm_message>
+  </parameter>
+  <parameter name="CI2" year="2016" month="12" day="17" hour="11" minute="41" second="42">
+    <id>3</id>
+    <value>7.4</value>
+    <alarm_condition>greater_then</alarm_condition>
+    <alarm_message>value of CI2 (7.4) is not greater then 10.</alarm_message>
+  </parameter>
+  <parameter name="CI2" year="2016" month="12" day="17" hour="11" minute="41" second="42">
+    <id>3</id>
+    <value>7.4</value>
+    <alarm_condition>greater_then</alarm_condition>
+    <alarm_message>value of CI2 (7.4) is not greater then 10.</alarm_message>
+  </parameter>
+  <parameter name="CI2" year="2016" month="12" day="17" hour="11" minute="41" second="57">
+    <id>3</id>
+    <value>10.3</value>
+    <alarm_condition>less_then</alarm_condition>
+    <alarm_message>value of CI2 (10.3) is not less then 10.</alarm_message>
+  </parameter>
+  <parameter name="CI2" year="2016" month="12" day="17" hour="11" minute="41" second="57">
+    <id>3</id>
+    <value>10.3</value>
+    <alarm_condition>less_then</alarm_condition>
+    <alarm_message>value of CI2 (10.3) is not less then 10.</alarm_message>
+  </parameter>
+  <parameter name="CI2" year="2016" month="12" day="17" hour="11" minute="41" second="57">
+    <id>3</id>
+    <value>10.3</value>
+    <alarm_condition>less_then</alarm_condition>
+    <alarm_message>value of CI2 (10.3) is not less then 10.</alarm_message>
+  </parameter>
+  <parameter name="CI2" year="2016" month="12" day="17" hour="11" minute="42" second="12">
+    <id>3</id>
+    <value>7.6</value>
+    <alarm_condition>greater_then</alarm_condition>
+    <alarm_message>value of CI2 (7.6) is not greater then 10.</alarm_message>
+  </parameter>
+  <parameter name="CI2" year="2016" month="12" day="17" hour="11" minute="42" second="12">
+    <id>3</id>
+    <value>7.6</value>
+    <alarm_condition>greater_then</alarm_condition>
+    <alarm_message>value of CI2 (7.6) is not greater then 10.</alarm_message>
+  </parameter>
+  <parameter name="CI2" year="2016" month="12" day="17" hour="11" minute="42" second="12">
+    <id>3</id>
+    <value>7.6</value>
+    <alarm_condition>greater_then</alarm_condition>
+    <alarm_message>value of CI2 (7.6) is not greater then 10.</alarm_message>
+  </parameter>
+  <parameter name="CI2" year="2016" month="12" day="17" hour="11" minute="44" second="46">
+    <id>3</id>
+    <value>7.6</value>
+    <alarm_condition>greater_then</alarm_condition>
+    <alarm_message>value of CI2 (7.6) is not greater then 10.</alarm_message>
+  </parameter>
+  <parameter name="CI2" year="2016" month="12" day="17" hour="11" minute="44" second="46">
+    <id>3</id>
+    <value>7.6</value>
+    <alarm_condition>greater_then</alarm_condition>
+    <alarm_message>value of CI2 (7.6) is not greater then 10.</alarm_message>
+  </parameter>
+  <parameter name="CI2" year="2016" month="12" day="17" hour="11" minute="44" second="46">
+    <id>3</id>
+    <value>7.6</value>
+    <alarm_condition>greater_then</alarm_condition>
+    <alarm_message>value of CI2 (7.6) is not greater then 10.</alarm_message>
+  </parameter>
+  <parameter name="CI2" year="2016" month="12" day="17" hour="11" minute="44" second="46">
+    <id>3</id>
+    <value>7.6</value>
+    <alarm_condition>greater_then</alarm_condition>
+    <alarm_message>value of CI2 (7.6) is not greater then 10.</alarm_message>
+  </parameter>
+</alarms>

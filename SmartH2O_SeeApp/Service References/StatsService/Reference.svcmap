@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c8e280b3-747a-41d3-b81e-3e2ad292b415" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6f88219a-f611-4edd-85b5-f1706561a809" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,10 +19,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:57175/UserService.svc?singleWsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://smarth2o.apphb.com/UserService.svc?singleWsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="UserService.wsdl" MetadataType="Wsdl" ID="465b425f-3e9a-4406-abf5-f20cec3302fb" SourceId="1" SourceUrl="http://localhost:57175/UserService.svc?singleWsdl" />
+    <MetadataFile FileName="UserService1.wsdl" MetadataType="Wsdl" ID="f8a7572d-6c20-418a-8161-fe551cc5eb86" SourceId="1" SourceUrl="http://smarth2o.apphb.com/UserService.svc?singleWsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

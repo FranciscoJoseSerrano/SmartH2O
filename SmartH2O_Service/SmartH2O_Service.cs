@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
 
 namespace SmartH2O_Service
 {
@@ -19,14 +15,14 @@ namespace SmartH2O_Service
 
         [OperationContract]
         String GetDailyInThresholdParameter(String firstYear, String firstMonth, String firstDay, String secondYear, String secondMonth, String secondDay, String parameter);
-        //<?xml version="1.0"?><data><PH><date day="10/12/2016 00:00:00"><average>5,9</average><max>6,8</max><min>5,1</min></day>
+        //<?xml version="1.0"?><data><PH><date day="10/12/2016 00:00:00"><average>5,9</average><max>6,8</max><min>5,1</min></date>
 
         [OperationContract]
-        String GetDailyAlarm(String year, String month, String day);//<?xml version ="1.0"?><alarms><date hour="11" minute="46" second="8"><id>3</id><value>8.0</value><alarm_condition>beetween_min</alarm_condition></date></alarms>
+        String GetDailyAlarm(String year, String month, String day);//<?xml version ="1.0"?><alarms><date hour="11" minute="46" second="8"><id>3</id><value>8.0</value><alarm_condition>beetween_min</alarm_condition><alarm_message>value of CI2 (10.3) is not less then 10.</alarm_message></date></alarms>
 
         [OperationContract]
         String GetThresholdAlarm(String firstYear, String firstMonth, String firstDay, String secondYear, String secondMonth, String secondDay);
-        //<?xml version="1.0"?><alarms><date day="11" month="12" year="2016"><time hour="11" minute="46" second="8"><id>3</id><value>8.0</value><alarm_condition>beetween_min</alarm_condition></time></date></alarms>
+        //<?xml version="1.0"?><alarms><date day="11" month="12" year="2016"><time hour="11" minute="46" second="8"><id>3</id><value>8.0</value><alarm_condition>beetween_min</alarm_condition><alarm_messag>dadw</alarm_message></time></date></alarms>
         // TODO: Add your service operations here
     }
 

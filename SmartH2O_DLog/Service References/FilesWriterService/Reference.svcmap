@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8a3af46b-f35a-46f2-b97a-8dfc30c5d60c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d568818f-623f-444f-914f-170f8f26ab35" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,10 +19,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:57175/FilesWriterService.svc?singleWsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://smarth2o.apphb.com/FilesWriterService.svc?singleWsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="FilesWriterService.wsdl" MetadataType="Wsdl" ID="66decfe1-1246-4e09-89a2-1ca2c1f6f518" SourceId="1" SourceUrl="http://localhost:57175/FilesWriterService.svc?singleWsdl" />
+    <MetadataFile FileName="FilesWriterService1.wsdl" MetadataType="Wsdl" ID="08d2b8c0-91c7-4c82-9ac6-7bd26606c416" SourceId="1" SourceUrl="http://smarth2o.apphb.com/FilesWriterService.svc?singleWsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

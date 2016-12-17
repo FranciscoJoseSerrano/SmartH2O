@@ -1,8 +1,6 @@
 ﻿using System;
-using System.IO;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using uPLibrary.Networking.M2Mqtt;
 using uPLibrary.Networking.M2Mqtt.Messages;
 
@@ -29,10 +27,12 @@ namespace SmartH2O_DLog
             if (e.Topic.Contains("alarms"))
             {
                 var task = Task.Run(() => client.sendWaterAlarmAsync(Encoding.UTF8.GetString(e.Message)));
+                task.Wait();
             }
             else
             {
                 var task2 = Task.Run(() => client.sendWaterParameterAsync(Encoding.UTF8.GetString(e.Message)));
+                task2.Wait();
             }
         }
 

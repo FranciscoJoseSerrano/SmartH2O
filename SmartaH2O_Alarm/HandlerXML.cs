@@ -399,7 +399,6 @@ namespace SmartaH2O_Alarm
             if (isAlarmXMLValid(xml))
             {
                 alarm = xml;
-                //MessageBox.Show(alarm);
 
             }
         }

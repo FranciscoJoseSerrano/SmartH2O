@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<data>
+  <NH3 id="2">
+    <H2O day="17" month="12" year="2016" hour="11" minute="40" second="7">
+      <value>1.24</value>
+    </H2O>
+    <H2O day="17" month="12" year="2016" hour="11" minute="40" second="22">
+      <value>1.24</value>
+    </H2O>
+    <H2O day="17" month="12" year="2016" hour="11" minute="40" second="37">
+      <value>1.57</value>
+    </H2O>
+    <H2O day="17" month="12" year="2016" hour="11" minute="41" second="19">
+      <value>1.53</value>
+    </H2O>
+    <H2O day="17" month="12" year="2016" hour="11" minute="41" second="37">
+      <value>1.87</value>
+    </H2O>
+    <H2O day="17" month="12" year="2016" hour="11" minute="41" second="52">
+      <value>1.97</value>
+    </H2O>
+    <H2O day="17" month="12" year="2016" hour="11" minute="42" second="7">
+      <value>1.72</value>
+    </H2O>
+    <H2O day="17" month="12" year="2016" hour="11" minute="42" second="22">
+      <value>1.83</value>
+    </H2O>
+    <H2O day="17" month="12" year="2016" hour="11" minute="44" second="41">
+      <value>1.54</value>
+    </H2O>
+    <H2O day="17" month="12" year="2016" hour="11" minute="44" second="56">
+      <value>1.37</value>
+    </H2O>
+  </NH3>
+  <CI2 id="3">
+    <H2O day="17" month="12" year="2016" hour="11" minute="40" second="12">
+      <value>9.7</value>
+    </H2O>
+    <H2O day="17" month="12" year="2016" hour="11" minute="40" second="27">
+      <value>9.4</value>
+    </H2O>
+    <H2O day="17" month="12" year="2016" hour="11" minute="41" second="24">
+      <value>9.0</value>
+    </H2O>
+    <H2O day="17" month="12" year="2016" hour="11" minute="41" second="42">
+      <value>7.4</value>
+    </H2O>
+    <H2O day="17" month="12" year="2016" hour="11" minute="41" second="57">
+      <value>10.3</value>
+    </H2O>
+    <H2O day="17" month="12" year="2016" hour="11" minute="42" second="12">
+      <value>7.6</value>
+    </H2O>
+    <H2O day="17" month="12" year="2016" hour="11" minute="44" second="46">
+      <value>7.6</value>
+    </H2O>
+    <H2O day="17" month="12" year="2016" hour="11" minute="45" second="1">
+      <value>9.7</value>
+    </H2O>
+  </CI2>
+  <PH id="1">
+    <H2O day="17" month="12" year="2016" hour="11" minute="40" second="17">
+      <value>6.1</value>
+    </H2O>
+    <H2O day="17" month="12" year="2016" hour="11" minute="40" second="32">
+      <value>6.7</value>
+    </H2O>
+    <H2O day="17" month="12" year="2016" hour="11" minute="41" second="47">
+      <value>6.5</value>
+    </H2O>
+    <H2O day="17" month="12" year="2016" hour="11" minute="42" second="2">
+      <value>6.4</value>
+    </H2O>
+    <H2O day="17" month="12" year="2016" hour="11" minute="42" second="17">
+      <value>6.7</value>
+    </H2O>
+    <H2O day="17" month="12" year="2016" hour="11" minute="44" second="51">
+      <value>6.4</value>
+    </H2O>
+  </PH>
+</data>

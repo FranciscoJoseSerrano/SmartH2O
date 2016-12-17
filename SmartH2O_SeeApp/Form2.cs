@@ -65,6 +65,7 @@ namespace SmartH2O_SeeApp
 
             foreach (var p in parameters.Keys)
             {
+
                 var task = Task.Run(() => client.GetHourlyInSpecificDayParameterAsync(DateTime.Now.Year.ToString(), DateTime.Now.Month.ToString(), DateTime.Now.Day.ToString(), p.ToUpper()));
                 task.Wait();
                 fillDailyCharts(task.Result, p.ToUpper());
@@ -92,7 +93,10 @@ namespace SmartH2O_SeeApp
         private void fillDailyCharts(string xml, string parameter)
         {
             int p = 0;
-
+            if (xml == "")
+            {
+                return;
+            }
             XmlDocument doc = new XmlDocument();
             doc.LoadXml(xml);
 
@@ -110,7 +114,7 @@ namespace SmartH2O_SeeApp
                     if (list.Count == 0)
                     {
                         labelDailyPH.Visible = true;
-                       
+
                     }
                     else
                     {
@@ -127,7 +131,7 @@ namespace SmartH2O_SeeApp
                     if (list.Count == 0)
                     {
                         labelDailyNH3.Visible = true;
-                       
+
                     }
                     else
                     {
@@ -144,7 +148,7 @@ namespace SmartH2O_SeeApp
                     if (list.Count == 0)
                     {
                         labelDailyCI2.Visible = true;
-                       
+
                     }
                     else
                     {
@@ -162,9 +166,9 @@ namespace SmartH2O_SeeApp
 
             foreach (XmlNode n in list)
             {
-                dailyCharts[p].Series[0].Points.AddXY(int.Parse(n["hour"].InnerText), double.Parse(n["min"].InnerText));
-                dailyCharts[p].Series[1].Points.AddXY(int.Parse(n["hour"].InnerText), double.Parse(n["max"].InnerText));
-                dailyCharts[p].Series[2].Points.AddXY(int.Parse(n["hour"].InnerText), double.Parse(n["average"].InnerText));
+                dailyCharts[p].Series[0].Points.AddXY(int.Parse(n["hour"].InnerText), Convert.ToDouble(n["min"].InnerText.Replace(".", ",")).ToString("0,0"));
+                dailyCharts[p].Series[1].Points.AddXY(int.Parse(n["hour"].InnerText), Convert.ToDouble(n["max"].InnerText.Replace(".", ",")).ToString("0,0"));
+                dailyCharts[p].Series[2].Points.AddXY(int.Parse(n["hour"].InnerText), Convert.ToDouble(n["average"].InnerText.Replace(".", ",")).ToString("0,0"));
 
             }
 
@@ -174,7 +178,10 @@ namespace SmartH2O_SeeApp
         private void fillWeeklyCharts(string xml, string parameter)
         {
             int p = 0;
-
+            if (xml == "")
+            {
+                return;
+            }
             XmlDocument doc = new XmlDocument();
             doc.LoadXml(xml);
 
@@ -192,7 +199,7 @@ namespace SmartH2O_SeeApp
                     if (list.Count == 0)
                     {
                         labelWeeklyPh.Visible = true;
-                       
+
                     }
                     else
                     {
@@ -210,7 +217,7 @@ namespace SmartH2O_SeeApp
                     if (list.Count == 0)
                     {
                         labelWeeklyNH3.Visible = true;
-                        
+
                     }
                     else
                     {
@@ -227,7 +234,7 @@ namespace SmartH2O_SeeApp
                     if (list.Count == 0)
                     {
                         labelWeeklyCI2.Visible = true;
-                      
+
                     }
                     else
                     {
@@ -243,9 +250,9 @@ namespace SmartH2O_SeeApp
 
             foreach (XmlNode n in list)
             {
-                weeklyCharts[p].Series[0].Points.AddXY(int.Parse(n.Attributes["day"].InnerText.Substring(0, 2)), double.Parse(n["min"].InnerText));
-                weeklyCharts[p].Series[1].Points.AddXY(int.Parse(n.Attributes["day"].InnerText.Substring(0, 2)), double.Parse(n["max"].InnerText));
-                weeklyCharts[p].Series[2].Points.AddXY(int.Parse(n.Attributes["day"].InnerText.Substring(0, 2)), double.Parse(n["average"].InnerText));
+                weeklyCharts[p].Series[0].Points.AddXY(int.Parse(n.Attributes["day"].InnerText.Substring(0, 2)), Convert.ToDouble(n["min"].InnerText.Replace(".", ",")).ToString("0,0"));
+                weeklyCharts[p].Series[1].Points.AddXY(int.Parse(n.Attributes["day"].InnerText.Substring(0, 2)), Convert.ToDouble(n["max"].InnerText.Replace(".", ",")).ToString("0,0"));
+                weeklyCharts[p].Series[2].Points.AddXY(int.Parse(n.Attributes["day"].InnerText.Substring(0, 2)), Convert.ToDouble(n["average"].InnerText.Replace(".", ",")).ToString("0,0"));
 
             }
 

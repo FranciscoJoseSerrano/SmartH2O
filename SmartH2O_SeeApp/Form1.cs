@@ -79,7 +79,7 @@ namespace SmartH2O_SeeApp
                         tableAlarms.Controls.Add(new Label() { Text = node["parameter"].InnerText }, tableAlarms.ColumnCount - 4, tableAlarms.RowCount);
                         tableAlarms.Controls.Add(new Label() { Text = node["alarm_condition"].InnerText }, tableAlarms.ColumnCount - 3, tableAlarms.RowCount);
                         tableAlarms.Controls.Add(new Label() { Text = node["value"].InnerText }, tableAlarms.ColumnCount - 2, tableAlarms.RowCount);
-                        tableAlarms.Controls.Add(new Label() { Text = node["alarm_message"].InnerText }, tableAlarms.ColumnCount - 1, tableAlarms.RowCount);
+                        tableAlarms.Controls.Add(new Label() { Text = node["alarm_message"].InnerText , Width=200}, tableAlarms.ColumnCount - 1, tableAlarms.RowCount);        
                     }
                 }
             }

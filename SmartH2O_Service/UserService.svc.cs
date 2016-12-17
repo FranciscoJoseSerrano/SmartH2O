@@ -9,8 +9,8 @@ namespace SmartH2O_Service
     {
         private XmlDocument doc = new XmlDocument();
 
-        private String path = AppDomain.CurrentDomain.BaseDirectory + "App_Data" + "/" + Properties.Settings.Default.XmlDataPath;
-        private String pathAlarm = AppDomain.CurrentDomain.BaseDirectory + "App_Data" + "/" + Properties.Settings.Default.XmlAlarmsPath;
+        private String path = AppDomain.CurrentDomain.BaseDirectory + "/App_Data" + "/" + Properties.Settings.Default.XmlDataPath;
+        private String pathAlarm = AppDomain.CurrentDomain.BaseDirectory + "/App_Data" + "/" + Properties.Settings.Default.XmlAlarmsPath;
 
         public string GetDailyAlarm(string year, string month, string day)
         {
@@ -65,7 +65,13 @@ namespace SmartH2O_Service
 
         public string GetThresholdAlarm(string firstYear, string firstMonth, string firstDay, string secondYear, string secondMonth, string secondDay)
         {
-            doc.Load(this.pathAlarm);
+            try
+            {
+                doc.Load(this.pathAlarm);
+            }catch(Exception e)
+            {
+                return "";
+            }
             DateTime firstDate = new DateTime(int.Parse(firstYear), int.Parse(firstMonth), int.Parse(firstDay));
             DateTime secondDate = new DateTime(int.Parse(secondYear), int.Parse(secondMonth), int.Parse(secondDay));
 
@@ -100,6 +106,9 @@ namespace SmartH2O_Service
                     XmlElement id = docSave.CreateElement("parameter");
                     id.InnerText = item.Attributes["name"].InnerText;
 
+                    XmlElement alarmMessage = docSave.CreateElement("alarm_message");
+                    alarmMessage.InnerText = item["alarm_message"].InnerText;
+
                     XmlElement valor = docSave.CreateElement("value");
                     valor.InnerText = item["value"].InnerText;
 
@@ -110,6 +119,7 @@ namespace SmartH2O_Service
                     time.AppendChild(id);
                     time.AppendChild(valor);
                     time.AppendChild(alarmCondition);
+                    time.AppendChild(alarmMessage);
                 }
 
             }
@@ -123,7 +133,14 @@ namespace SmartH2O_Service
         {
             List<DatePerHour> listValues;
             listValues = new List<DatePerHour>();
-            doc.Load(this.path);
+            try
+            {
+                doc.Load(this.path);
+            }
+            catch (Exception e)
+            {
+                return "";
+            }
 
             DateTime firstDate = new DateTime(int.Parse(firstYear), int.Parse(firstMonth), int.Parse(firstDay));
             DateTime secondDate = new DateTime(int.Parse(secondYear), int.Parse(secondMonth), int.Parse(secondDay));
@@ -176,7 +193,14 @@ namespace SmartH2O_Service
 
             List<DatePerHour> listValues;
             listValues = new List<DatePerHour>();
-            doc.Load(this.path);
+            try
+            {
+                doc.Load(this.path);
+            }
+            catch (Exception e)
+            {
+                return "";
+            }
             DateTime date = new DateTime(int.Parse(year), int.Parse(month), int.Parse(day));
             for (int i = 0; i < 24; i++)
             {
@@ -186,7 +210,7 @@ namespace SmartH2O_Service
                 int number = 0;
                 double average = 0.0;
                 XmlNodeList value = doc.SelectNodes("/data/" + parameter + "/H2O[@day=" + day + "][@month=" + month + "][@year=" + year + "][@hour=" + i + "]/value");
- 
+
                 if (value.Count != 0)
                 {
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Web;
 using System.Xml;
 
 namespace SmartH2O_Service
@@ -11,7 +12,7 @@ namespace SmartH2O_Service
         public HandlerAlarmXml()
         {
 
-            FilePath = AppDomain.CurrentDomain.BaseDirectory + "App_Data" + "/" + Properties.Settings.Default.XmlAlarmsPath;
+            FilePath  = AppDomain.CurrentDomain.BaseDirectory+"/App_Data"+"/"+Properties.Settings.Default.XmlAlarmsPath;
 
         }
 

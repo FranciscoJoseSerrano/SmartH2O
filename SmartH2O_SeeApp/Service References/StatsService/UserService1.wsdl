@@ -200,7 +200,7 @@
   </wsdl:binding>
   <wsdl:service name="UserService">
     <wsdl:port name="BasicHttpBinding_SmartH20Service" binding="tns:BasicHttpBinding_SmartH20Service">
-      <soap:address location="http://localhost:57175/UserService.svc" />
+      <soap:address location="http://smarth2o.apphb.com/UserService.svc" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

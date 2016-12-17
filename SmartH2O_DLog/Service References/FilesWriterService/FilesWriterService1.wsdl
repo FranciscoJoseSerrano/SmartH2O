@@ -114,7 +114,7 @@
   </wsdl:binding>
   <wsdl:service name="FilesWriterService">
     <wsdl:port name="BasicHttpBinding_FilesWriter" binding="tns:BasicHttpBinding_FilesWriter">
-      <soap:address location="http://localhost:57175/FilesWriterService.svc" />
+      <soap:address location="http://smarth2o.apphb.com/FilesWriterService.svc" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
